@@ -99,22 +99,28 @@ async function sendMessage(userMsg) {
   setLoading(true)
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
+        model: 'claude-sonnet-4-5',
+        max_tokens: 1024,
         system: BUSINESS_CONTEXT,
         messages: conversationHistory,
-      })
+      }),
     })
 
     const data = await response.json()
-    const reply = data.content?.[0]?.text || 'Error al procesar la respuesta.'
-    conversationHistory.push({ role: 'assistant', content: reply })
+
+    if (!response.ok) {
+      const errMsg = data?.error || data?.error?.message || `Error ${response.status}`
+      conversationHistory.push({ role: 'assistant', content: `⚠️ ${errMsg}` })
+    } else {
+      const reply = data.content?.[0]?.text || 'Error al procesar la respuesta.'
+      conversationHistory.push({ role: 'assistant', content: reply })
+    }
   } catch (err) {
-    conversationHistory.push({ role: 'assistant', content: 'Error de conexión. Verificá tu conexión a internet e intentá de nuevo.' })
+    conversationHistory.push({ role: 'assistant', content: `⚠️ Error de red: ${err.message}. ¿La función /api/chat está deployada en Vercel?` })
   }
 
   isLoading = false
