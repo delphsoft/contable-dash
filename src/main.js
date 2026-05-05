@@ -4,6 +4,7 @@ import { renderVentas }      from './views/ventas.js'
 import { renderProveedores } from './views/proveedores.js'
 import { renderBreakeven }   from './views/breakeven.js'
 import { renderAlertas }     from './views/alertas.js'
+import { renderAgente }      from './views/agente.js'
 
 const VIEWS={
   overview:    {render:renderOverview,    title:'Overview',     sub:'Resumen ejecutivo del período'},
@@ -11,6 +12,7 @@ const VIEWS={
   proveedores: {render:renderProveedores, title:'Proveedores',  sub:'Concentración y mapa de riesgo'},
   breakeven:   {render:renderBreakeven,   title:'Break-even',   sub:'Simulador de punto de equilibrio'},
   alertas:     {render:renderAlertas,     title:'Alertas',      sub:'Diagnóstico y acciones prioritarias'},
+  agente:      {render:renderAgente,      title:'Asesor IA',    sub:'Estrategia y recomendaciones con IA'},
 }
 
 let current=null

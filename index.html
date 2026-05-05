@@ -37,6 +37,12 @@
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 13H2L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 7v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r=".75" fill="currentColor"/></svg>
           <span>Alertas</span>
         </a>
+        <div style="margin:8px 0 4px;padding:0 12px;font-size:10px;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em">IA</div>
+        <a class="nav-item" data-view="agente" style="position:relative">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 14h6M8 11v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="5.5" cy="6.5" r="1" fill="currentColor"/><circle cx="10.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          <span>Asesor IA</span>
+          <span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2.5s infinite"></span>
+        </a>
       </nav>
       <div class="sidebar-footer">
         <div class="period-badge">Oct 25 — Feb 26</div>
@@ -59,6 +65,7 @@
       <div id="view-proveedores" class="view"></div>
       <div id="view-breakeven" class="view"></div>
       <div id="view-alertas" class="view"></div>
+      <div id="view-agente" class="view"></div>
     </main>
   </div>
   <script type="module" src="/src/main.js"></script>
