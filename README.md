@@ -1,53 +1,47 @@
-# Dashboard Contable
+# FacturaFácil + Dashboard Contable — Proyecto Unificado
 
-Panel de control contable dark-mode con 5 vistas interactivas y datos reales.
+Una sola app que integra facturación ARCA, gestión de impuestos, dashboard contable con Google Drive y Asesor IA.
 
 ## Vistas
-- **Overview** — KPIs ejecutivos, ventas vs CMV, márgenes mensuales
-- **Ventas** — Canales de cobro, categorías CMV, gastos fijos apilados
-- **Proveedores** — Concentración, curva Pareto, mapa de riesgo por proveedor
-- **Break-even** — Simulador interactivo con sliders en tiempo real + 4 escenarios
-- **Alertas** — Diagnóstico automático, 3 críticas + 4 advertencias + acción prioritaria
 
-## Stack
-- **Vite 5** (bundler)
-- **Chart.js 4** (gráficos)
-- **Vanilla JS modular** (sin framework)
-- **Fuentes**: Syne + DM Mono + Inter (Google Fonts)
+### Facturación
+- **Dashboard** — Resumen de facturas y métricas
+- **Mis Facturas** — Emitir comprobantes con CAE real via ARCA/AfipSDK
+- **MercadoPago** — Importar y clasificar movimientos
+- **Impuestos** — Monotributo, IIBB, simulador fiscal
 
----
+### Contable
+- **Overview** — KPIs, ventas vs CMV, márgenes
+- **Ventas** — Canales, categorías, gastos
+- **Proveedores** — Concentración, Pareto, riesgo
+- **Break-even** — Simulador interactivo
+- **Google Drive** — Actualizar datos desde .xlsx
 
-## Deploy en Vercel (3 pasos)
+### IA
+- **Asesor IA** — Chat con contexto completo del negocio
 
-### 1. Subir a GitHub
+## Deploy en Vercel
+
+### 1. GitHub
 ```bash
-git init
-git add .
-git commit -m "init: dashboard contable"
-gh repo create contable-dashboard --public --push --source=.
+git init && git add . && git commit -m "init"
+gh repo create app-unificado --public --push --source=.
 ```
-*(Si no tenés GitHub CLI: crear repo manualmente en github.com y seguir las instrucciones)*
 
-### 2. Importar en Vercel
-1. Ir a **vercel.com/new**
-2. Click **"Import Git Repository"** → seleccionar `contable-dashboard`
-3. Vercel detecta Vite automáticamente — **no cambiar nada**
-4. Click **Deploy** → URL lista en ~30 segundos
+### 2. Vercel → import repo → Deploy
 
-### 3. Dev local
+### 3. Variables de entorno (Settings → Environment Variables)
+
+| Variable | Descripción |
+|---|---|
+| `ANTHROPIC_API_KEY` | Para el Asesor IA |
+| `AFIPSDK_ACCESS_TOKEN` | Para facturas reales con ARCA |
+| `AFIPSDK_CUIT` | Tu CUIT sin guiones |
+| `MP_ACCESS_TOKEN` | Token de MercadoPago (opcional) |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | JSON de Service Account de Google |
+
+## Dev local
 ```bash
 npm install
 npm run dev
-# → http://localhost:5173
-```
-
----
-
-## Actualizar datos
-Editar **`src/data/data.js`** — todos los gráficos se actualizan automáticamente al rebuild.
-
-## Build manual
-```bash
-npm run build    # genera /dist listo para deploy
-npm run preview  # preview local del build
 ```

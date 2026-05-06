@@ -1,73 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Contable</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/src/style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FacturaFácil + Contable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/src/style.css"/>
 </head>
 <body>
-  <div id="app">
-    <aside class="sidebar">
-      <div class="sidebar-logo">
-        <div class="logo-mark">C</div>
-        <span class="logo-text">Contable</span>
+<div id="app">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">FF</div>
+      <span class="logo-text">FacturaFácil</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <!-- FACTURA SECTION -->
+      <div class="nav-section-label">Facturación</div>
+      <a class="nav-item active" data-view="ff-dashboard">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".3"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" data-view="ff-facturas">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <span>Mis Facturas</span>
+      </a>
+      <a class="nav-item" data-view="ff-mercadopago">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>MercadoPago</span>
+      </a>
+      <a class="nav-item" data-view="ff-impuestos">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 12 L5 8 L8 10 L11 5 L14 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Impuestos</span>
+      </a>
+
+      <!-- CONTABLE SECTION -->
+      <div class="nav-section-label" style="margin-top:12px">Contable</div>
+      <a class="nav-item" data-view="ct-overview">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".4"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".4"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".2"/></svg>
+        <span>Overview</span>
+      </a>
+      <a class="nav-item" data-view="ct-ventas">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 13 L5 9 L8 11 L11 6 L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Ventas</span>
+      </a>
+      <a class="nav-item" data-view="ct-proveedores">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Proveedores</span>
+      </a>
+      <a class="nav-item" data-view="ct-breakeven">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 14 L14 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>
+        <span>Break-even</span>
+      </a>
+      <a class="nav-item" data-view="ct-drive">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 12H2L8 2Z" fill="currentColor" opacity=".3"/><path d="M5 12l3-5.5L11 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Google Drive</span>
+        <span class="nav-badge">NEW</span>
+      </a>
+
+      <!-- IA SECTION -->
+      <div class="nav-section-label" style="margin-top:12px">IA</div>
+      <a class="nav-item" data-view="ct-agente">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 14h6M8 11v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="5.5" cy="6.5" r="1" fill="currentColor"/><circle cx="10.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <span>Asesor IA</span>
+        <span class="nav-pulse"></span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="period-badge" id="sb-period">Oct 25 — Feb 26</div>
+      <div class="sidebar-meta" id="sb-user">Sin sesión</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 class="page-title" id="page-title">Dashboard</h1>
+        <div class="page-sub" id="page-sub">Resumen de facturación</div>
       </div>
-      <nav class="sidebar-nav">
-        <a class="nav-item active" data-view="overview">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".3"/></svg>
-          <span>Overview</span>
-        </a>
-        <a class="nav-item" data-view="ventas">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 12 L5 8 L8 10 L11 5 L14 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Ventas</span>
-        </a>
-        <a class="nav-item" data-view="proveedores">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <span>Proveedores</span>
-        </a>
-        <a class="nav-item" data-view="breakeven">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14 L14 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>
-          <span>Break-even</span>
-        </a>
-        <a class="nav-item" data-view="alertas">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 13H2L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 7v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r=".75" fill="currentColor"/></svg>
-          <span>Alertas</span>
-        </a>
-        <div style="margin:8px 0 4px;padding:0 12px;font-size:10px;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em">IA</div>
-        <a class="nav-item" data-view="agente" style="position:relative">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 14h6M8 11v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="5.5" cy="6.5" r="1" fill="currentColor"/><circle cx="10.5" cy="6.5" r="1" fill="currentColor"/></svg>
-          <span>Asesor IA</span>
-          <span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2.5s infinite"></span>
-        </a>
-      </nav>
-      <div class="sidebar-footer">
-        <div class="period-badge">Oct 25 — Feb 26</div>
-        <div class="sidebar-meta">5 meses · datos reales</div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span class="status-text" id="status-text">Conectado</span>
       </div>
-    </aside>
-    <main class="main">
-      <header class="topbar">
-        <div>
-          <h1 class="page-title" id="page-title">Overview</h1>
-          <div class="page-sub" id="page-sub">Resumen ejecutivo del período</div>
-        </div>
-        <div class="topbar-right">
-          <div class="status-dot"></div>
-          <span class="status-text">Datos actualizados</span>
-        </div>
-      </header>
-      <div id="view-overview" class="view active"></div>
-      <div id="view-ventas" class="view"></div>
-      <div id="view-proveedores" class="view"></div>
-      <div id="view-breakeven" class="view"></div>
-      <div id="view-alertas" class="view"></div>
-      <div id="view-agente" class="view"></div>
-    </main>
-  </div>
-  <script type="module" src="/src/main.js"></script>
+    </header>
+
+    <!-- all views -->
+    <div id="view-ff-dashboard"  class="view active"></div>
+    <div id="view-ff-facturas"   class="view"></div>
+    <div id="view-ff-mercadopago" class="view"></div>
+    <div id="view-ff-impuestos"  class="view"></div>
+    <div id="view-ct-overview"   class="view"></div>
+    <div id="view-ct-ventas"     class="view"></div>
+    <div id="view-ct-proveedores" class="view"></div>
+    <div id="view-ct-breakeven"  class="view"></div>
+    <div id="view-ct-drive"      class="view"></div>
+    <div id="view-ct-agente"     class="view"></div>
+  </main>
+</div>
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>
