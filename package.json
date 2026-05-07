@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "chart.js": "^4.4.1"
+    "chart.js": "^4.4.1",
+    "jose": "^5.9.6",
+    "@supabase/supabase-js": "^2.45.4"
   },
   "devDependencies": {
     "vite": "^5.0.0"
