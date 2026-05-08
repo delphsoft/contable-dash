@@ -59,18 +59,6 @@ export function renderDrive(el) {
         <div id="preview-content"></div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-title">Cómo conectar Google Drive (Service Account)</span></div>
-        <div style="font-size:12px;color:var(--txt2);line-height:1.8">
-          ${[
-            ['1','Ir a console.cloud.google.com → crear proyecto → habilitar Google Drive API'],
-            ['2','IAM → Service Accounts → Create → descargar el JSON de credenciales'],
-            ['3','Compartir tu archivo .xlsx con el email de la service account (termina en @...iam.gserviceaccount.com)'],
-            ['4','En Vercel → Settings → Environment Variables → agregar <code style="font-family:DM Mono;background:var(--bg3);padding:1px 5px;border-radius:3px">GOOGLE_SERVICE_ACCOUNT_JSON</code> con el contenido del JSON'],
-            ['5','Pegar el File ID del archivo de Drive arriba y hacer click en Sincronizar'],
-          ].map(([n,t])=>`<div style="display:flex;gap:10px;margin-bottom:8px"><span style="min-width:20px;height:20px;border-radius:50%;background:var(--blue-d);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0">${n}</span><span>${t}</span></div>`).join('')}
-        </div>
-      </div>
     `
     bindDrop()
     bindSync()
