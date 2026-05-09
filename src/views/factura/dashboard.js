@@ -327,7 +327,7 @@ function renderTable(filtered, loading) {
             const src  = SOURCE_CFG[inv.payment_source]
             const cae8 = inv.cae ? inv.cae.slice(-8) : '—'
             return `<tr>
-              <td><span class="card-badge badge-purple" style="font-size:9.5px">${tipo}</span></td>
+              <td><span class="pill pill-purple" style="font-size:9.5px">${tipo}</span></td>
               <td style="max-width:180px">
                 <div style="font-size:12px;font-weight:500;color:var(--txt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${inv.recipient||inv.receptor_razon_social||'—'}</div>
                 ${inv.description?`<div style="font-size:10.5px;color:var(--txt3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${inv.description}</div>`:''}
@@ -336,7 +336,7 @@ function renderTable(filtered, loading) {
               <td><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--blue);background:var(--blue-d);padding:2px 6px;border-radius:4px">${cae8}</span></td>
               <td style="font-size:10.5px;color:var(--txt3)">${inv.cae_fch_vto||'—'}</td>
               <td>${src?`<span style="font-size:10px;padding:2px 7px;border-radius:20px;background:${src.bg};color:${src.color}">${src.icon} ${src.label}</span>`:`<span style="font-size:10.5px;color:var(--txt3)">Manual</span>`}</td>
-              <td><span class="card-badge ${inv.cae?'badge-green':'badge-amber'}" style="font-size:9.5px">${inv.cae?'Autorizada':'Borrador'}${inv.demo?' (demo)':''}</span></td>
+              <td><span class="card-badge ${inv.cae?'pill-green':'pill-amber'}" style="font-size:9.5px">${inv.cae?'Autorizada':'Borrador'}${inv.demo?' (demo)':''}</span></td>
               <td><button class="pdf-btn ff-btn ff-btn-secondary" data-id="${inv.id}" style="font-size:10.5px;padding:3px 9px">📄 PDF</button></td>
             </tr>`
           }).join('')}
@@ -415,7 +415,7 @@ function renderMP() {
             <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:${srcCfg.bg};color:${srcCfg.color};white-space:nowrap">${srcCfg.icon} ${srcCfg.label}</span>
             <span style="font-size:10px;padding:2px 7px;border-radius:20px;background:${sCfg.bg};color:${sCfg.color};white-space:nowrap">${sCfg.label}</span>
             ${isInvoiced
-              ? `<span class="card-badge badge-green" style="font-size:9.5px;white-space:nowrap">✓ Facturado</span>`
+              ? `<span class="pill pill-green" style="font-size:9.5px;white-space:nowrap">✓ Facturado</span>`
               : `<div style="font-family:'DM Mono',monospace;font-size:12px;font-weight:600;color:${isRec?'var(--green)':'var(--red)'};white-space:nowrap">$${fmt(p.transaction_amount||0)}</div>`
             }
           </div>`
@@ -453,7 +453,7 @@ function renderReportes() {
             <tbody>
               ${(reportData.facturas||[]).map(inv=>`<tr>
                 <td style="font-size:11px;color:var(--txt2)">${inv.date||inv.fecha||'—'}</td>
-                <td><span class="card-badge badge-purple" style="font-size:9.5px">${CBTE[inv.tipo_comprobante]||'FC'}</span></td>
+                <td><span class="pill pill-purple" style="font-size:9.5px">${CBTE[inv.tipo_comprobante]||'FC'}</span></td>
                 <td style="max-width:160px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${inv.receptor_razon_social||inv.recipient||'—'}</td>
                 <td style="font-size:11px;color:var(--txt2);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${inv.description||'—'}</td>
                 <td style="font-family:'DM Mono',monospace;font-size:12px">$${fmt(inv.amount||0)}</td>
@@ -484,7 +484,7 @@ function renderModal(civa) {
 
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:520px;max-height:90vh;overflow-y:auto">
+      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:520px;max-height:90vh;overflow-y:auto">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
           <div>
             <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Nueva Factura</div>

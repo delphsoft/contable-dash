@@ -182,7 +182,7 @@ export function renderAgente(el) {
   el.innerHTML = `
     <div class="ag-layout">
       <!-- Left: chat -->
-      <div class="ag-panel-chat">
+      <div class="ag-chat-panel">
         <div class="ag-header">
           <div class="ag-avatar-lg">C</div>
           <div>
@@ -191,7 +191,7 @@ export function renderAgente(el) {
           </div>
         </div>
 
-        <div class="ag-chat" id="ag-chat">
+        <div class="ag-chat" id="ag-messages" class="ag-messages">
           <div class="ag-msg ag-bot">
             <div class="ag-avatar">C</div>
             <div class="ag-bubble ag-bubble-bot">
@@ -214,7 +214,7 @@ export function renderAgente(el) {
       </div>
 
       <!-- Right: context panel -->
-      <div class="ag-panel-context">
+      <div class="ag-ctx-panel">
         <div class="ag-ctx-title">Contexto del negocio</div>
 
         <div class="ag-ctx-section">

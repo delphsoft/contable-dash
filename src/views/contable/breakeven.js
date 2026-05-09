@@ -19,7 +19,7 @@ function gv(){
 }
 
 function drawCharts(v,r){
-  const gc='rgba(255,255,255,0.05)',tc='#666'
+  const gc='rgba(255,255,255,0.06)',tc='#aaa'
   const wfV=[v.ventas,-(v.ventas*v.cmv/100),r.mb,-v.sueldos,-v.alquiler,-v.otros,r.mn]
   const wfC=wfV.map((val,i)=>i===0?'#4f8ef7':(i===2||i===6)?val>=0?'#2ec08a':'#f05a5a':'#f05a5a60')
   if(wC)wC.destroy()
@@ -51,7 +51,7 @@ function update(){
   document.getElementById('be-an').textContent=fmtM(r.mn*12)
   document.getElementById('be-an').style.color=p?'var(--green)':'var(--red)'
   document.getElementById('be-st').textContent=p?'Rentable':'Pérdida'
-  document.getElementById('be-st').className='card-badge '+(p?'badge-green':'badge-red')
+  document.getElementById('be-st').className='card-badge '+(p?'pill-green':'pill-red')
   const gap=v.cmv-r.cmvPe,d=document.getElementById('be-diag')
   d.className='diagnosis '+(p?'profit':'loss')
   d.innerHTML=p
@@ -83,7 +83,7 @@ export function renderBreakeven(el){
     <div class="kpi-grid">
       <div class="kpi-card"><div class="kpi-label">Margen bruto</div><div class="kpi-value" id="be-mb">—</div></div>
       <div class="kpi-card"><div class="kpi-label">Gastos fijos</div><div class="kpi-value" id="be-fx">—</div></div>
-      <div class="kpi-card"><div class="kpi-label">Resultado neto &nbsp;<span id="be-st" class="card-badge badge-red" style="font-size:10px;vertical-align:middle"></span></div><div class="kpi-value" id="be-mn">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Resultado neto &nbsp;<span id="be-st" class="pill pill-red" style="font-size:10px;vertical-align:middle"></span></div><div class="kpi-value" id="be-mn">—</div></div>
       <div class="kpi-card"><div class="kpi-label">CMV máx. p/equilibrio</div><div class="kpi-value" style="color:var(--blue)" id="be-cp">—</div></div>
       <div class="kpi-card"><div class="kpi-label">Ventas mín. p/equilibrio</div><div class="kpi-value" style="color:var(--blue)" id="be-vp">—</div></div>
       <div class="kpi-card"><div class="kpi-label">Proyección anual</div><div class="kpi-value" id="be-an">—</div></div>

@@ -5,10 +5,10 @@ import { fmtM } from '../../utils.js'
 const CC={Embutidos:'#4f8ef7',Delicatessen:'#f05a5a',Bebidas:'#2ec08a',Quesos:'#f0a050',Snack:'#9b82f7',Encurtidos:'#5DCAA5'}
 
 export function renderProveedores(el) {
-  const gc='rgba(255,255,255,0.05)',tc='#666'
+  const gc='rgba(255,255,255,0.06)',tc='#aaa'
   const rows=PROVEEDORES.map((p,i)=>{
     const pct=(p.total/GRAND_TOTAL_PROV*100)
-    const [rl,rc]=pct>=20?['Crítico','badge-red']:pct>=10?['Alto','badge-amber']:pct>=5?['Medio','badge-blue']:['Bajo','badge-green']
+    const [rl,rc]=pct>=20?['Crítico','pill-red']:pct>=10?['Alto','pill-amber']:pct>=5?['Medio','pill-blue']:['Bajo','pill-green']
     return`<div class="prov-row">
       <span class="prov-rank">${String(i+1).padStart(2,'0')}</span>
       <span class="prov-name">${p.name}</span>
@@ -37,7 +37,7 @@ export function renderProveedores(el) {
       </div>
     </div>
     <div class="card">
-      <div class="card-header"><span class="card-title">Todos los proveedores — mapa de riesgo</span><span class="card-badge badge-blue">${PROVEEDORES.length} activos</span></div>
+      <div class="card-header"><span class="card-title">Todos los proveedores — mapa de riesgo</span><span class="pill pill-blue">${PROVEEDORES.length} activos</span></div>
       ${rows}
     </div>`
   const top8=PROVEEDORES.slice(0,8)

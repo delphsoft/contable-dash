@@ -107,7 +107,7 @@ function renderDashboard(el) {
         <div class="card" style="margin-bottom:0">
           <div class="card-header">
             <span class="card-title">Análisis completo — ventas vs CMV vs gastos</span>
-            <span class="card-badge badge-purple">estratégico</span>
+            <span class="pill pill-purple">estratégico</span>
           </div>
           <div class="chart-wrap h220"><canvas id="sa-bar"></canvas></div>
           <div class="legend">
@@ -147,12 +147,12 @@ function renderDashboard(el) {
         <div class="card" style="margin-bottom:0">
           <div class="card-header">
             <span class="card-title">Mapa de riesgo proveedores</span>
-            <span class="card-badge badge-red">58% top 3</span>
+            <span class="pill pill-red">58% top 3</span>
           </div>
           <div style="overflow-y:auto;max-height:200px">
             ${PROVEEDORES.map((p,i)=>{
               const pct=(p.total/GRAND_TOTAL_PROV*100)
-              const [rl,rc]=pct>=20?['Crítico','badge-red']:pct>=10?['Alto','badge-amber']:pct>=5?['Medio','badge-blue']:['Bajo','badge-green']
+              const [rl,rc]=pct>=20?['Crítico','pill-red']:pct>=10?['Alto','pill-amber']:pct>=5?['Medio','pill-blue']:['Bajo','pill-green']
               return`<div class="prov-row">
                 <span class="prov-rank">${String(i+1).padStart(2,'0')}</span>
                 <span class="prov-name">${p.name}</span>
@@ -168,7 +168,7 @@ function renderDashboard(el) {
       </div>
 
       <!-- RIGHT: AI Agent -->
-      <div class="ag-panel-chat" style="height:calc(100vh - 200px);min-height:600px">
+      <div class="ag-chat-panel" style="height:calc(100vh - 200px);min-height:600px">
         <div class="ag-header">
           <div class="ag-avatar-lg">C</div>
           <div>
@@ -176,7 +176,7 @@ function renderDashboard(el) {
             <div class="ag-status"><span class="ag-online"></span>Super Admin · contexto completo</div>
           </div>
         </div>
-        <div class="ag-chat" id="sa-chat">
+        <div class="ag-chat" id="sa-messages" class="ag-messages">
           <div class="ag-msg ag-bot">
             <div class="ag-avatar">C</div>
             <div class="ag-bubble ag-bubble-bot">

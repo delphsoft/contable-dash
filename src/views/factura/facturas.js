@@ -26,7 +26,7 @@ export function renderFFFacturas(el) {
         <div class="card" style="margin-bottom:0">
           <div class="card-header">
             <span class="card-title">Nueva factura</span>
-            <span class="card-badge badge-blue">ARCA / AfipSDK</span>
+            <span class="pill pill-blue">ARCA / AfipSDK</span>
           </div>
 
           <div class="ff-form">
@@ -122,7 +122,7 @@ export function renderFFFacturas(el) {
         <div class="card" style="margin-bottom:0;max-height:620px;overflow-y:auto">
           <div class="card-header">
             <span class="card-title">Historial</span>
-            <span class="card-badge badge-blue">${facturas.length}</span>
+            <span class="pill pill-blue">${facturas.length}</span>
           </div>
           ${facturas.length === 0
             ? `<div style="text-align:center;padding:40px;color:var(--txt3);font-size:12px">Sin facturas todavía.<br>Emití tu primera factura.</div>`
@@ -135,15 +135,15 @@ export function renderFFFacturas(el) {
                 return `
                 <div style="padding:10px 0;border-bottom:0.5px solid var(--border)">
                   <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">
-                    <span class="card-badge badge-purple" style="font-size:9.5px">${label}</span>
+                    <span class="pill pill-purple" style="font-size:9.5px">${label}</span>
                     <span style="font-size:11.5px;color:var(--txt);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f.recipient||f.receptor_razon_social||'Sin nombre'}</span>
                     <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--txt)">${fmtCurrency(f.amount||f.monto||0)}</span>
                   </div>
                   <div style="display:flex;align-items:center;gap:7px">
-                    <span class="card-badge ${f.cae?'badge-green':'badge-amber'}" style="font-size:9.5px">${f.cae?'CAE ✓':'Borrador'}</span>
+                    <span class="card-badge ${f.cae?'pill-green':'pill-amber'}" style="font-size:9.5px">${f.cae?'CAE ✓':'Borrador'}</span>
                     ${f.cae?`<span style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--txt2)">N° ${num}</span>`:''}
                     ${f.cae_fch_vto?`<span style="font-size:9.5px;color:var(--txt3)">Vto: ${f.cae_fch_vto}</span>`:''}
-                    ${f.demo?`<span class="card-badge badge-amber" style="font-size:9px">DEMO</span>`:''}
+                    ${f.demo?`<span class="pill pill-amber" style="font-size:9px">DEMO</span>`:''}
                     <button onclick="window.__deleteFactura(${i})" style="margin-left:auto;background:none;border:none;color:var(--txt3);cursor:pointer;font-size:15px;padding:0 4px" title="Eliminar">×</button>
                   </div>
                   ${f.description?`<div style="font-size:10.5px;color:var(--txt3);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f.description}</div>`:''}

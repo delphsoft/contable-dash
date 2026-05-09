@@ -4,7 +4,7 @@ import { fmtM, fmtPct, sum } from '../../utils.js'
 
 export function renderEstadoContable(el) {
   const tV=sum(VENTAS), tC=sum(CMV), tB=sum(MB), tN=sum(MN)
-  const gc='rgba(255,255,255,0.05)', tc='#666'
+  const gc='rgba(255,255,255,0.06)', tc='#aaa'
 
   el.innerHTML=`
     <div class="kpi-grid">
@@ -43,7 +43,7 @@ export function renderEstadoContable(el) {
     <div class="card">
       <div class="card-header">
         <span class="card-title">Estado de resultados — mensual</span>
-        <span class="card-badge badge-blue">oct-25 a feb-26</span>
+        <span class="pill pill-blue">oct-25 a feb-26</span>
       </div>
       <div class="chart-wrap h260"><canvas id="ec-bar"></canvas></div>
       <div class="legend">
@@ -57,7 +57,7 @@ export function renderEstadoContable(el) {
       <div class="card">
         <div class="card-header">
           <span class="card-title">Resultado neto mensual</span>
-          <span class="card-badge ${tN<0?'badge-red':'badge-green'}">${fmtM(tN)} total</span>
+          <span class="card-badge ${tN<0?'pill-red':'pill-green'}">${fmtM(tN)} total</span>
         </div>
         <div class="chart-wrap h200"><canvas id="ec-net"></canvas></div>
       </div>

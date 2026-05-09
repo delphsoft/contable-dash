@@ -10,7 +10,7 @@ export function renderDrive(el) {
         <div class="card" style="margin-bottom:0">
           <div class="card-header">
             <span class="card-title">Google Drive — Service Account</span>
-            <span class="card-badge badge-green">Conectado</span>
+            <span class="card-badge pill-green">Conectado</span>
           </div>
           <p style="font-size:12px;color:var(--txt2);margin-bottom:14px;line-height:1.6">
             Subí tu archivo <strong style="color:var(--txt)">.xlsx de planilla contable</strong> y los datos del dashboard se actualizarán automáticamente. También podés vincular tu Google Drive para sincronización automática.
@@ -38,7 +38,7 @@ export function renderDrive(el) {
         <div class="card" style="margin-bottom:0">
           <div class="card-header">
             <span class="card-title">Archivos cargados</span>
-            <span class="card-badge badge-blue">${files.length}</span>
+            <span class="card-badge pill-blue">${files.length}</span>
           </div>
           ${files.length===0?`<div style="text-align:center;padding:30px;color:var(--txt3);font-size:12px">Sin archivos cargados todavía</div>`
           :files.map((f,i)=>`
@@ -55,7 +55,7 @@ export function renderDrive(el) {
       </div>
 
       <div class="card" id="preview-card" style="display:none">
-        <div class="card-header"><span class="card-title">Vista previa del archivo</span><span class="card-badge badge-green" id="preview-badge">—</span></div>
+        <div class="card-header"><span class="card-title">Vista previa del archivo</span><span class="card-badge pill-green" id="preview-badge">—</span></div>
         <div id="preview-content"></div>
       </div>
 

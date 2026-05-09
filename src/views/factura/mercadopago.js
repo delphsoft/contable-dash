@@ -8,7 +8,7 @@ export function renderFFMercadoPago(el) {
   function render() {
     el.innerHTML=`
       <div class="card" style="margin-bottom:14px">
-        <div class="card-header"><span class="card-title">Importar desde MercadoPago</span><span class="card-badge badge-blue">API</span></div>
+        <div class="card-header"><span class="card-title">Importar desde MercadoPago</span><span class="pill pill-blue">API</span></div>
         <div style="display:flex;gap:10px;margin-bottom:14px">
           <div class="ff-field" style="flex:1"><label class="ff-label">Access Token</label>
             <input class="ff-input" id="mp-token" placeholder="APP_USR-..." type="password"/>
@@ -70,7 +70,7 @@ export function renderFFMercadoPago(el) {
         <td style="font-size:11px;color:var(--txt2)">${r.date_created?fmtDate(r.date_created):'—'}</td>
         <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px">${r.description||r.payment_type_id||'—'}</td>
         <td style="font-family:'DM Mono',monospace;color:${r.transaction_amount>0?'var(--green)':'var(--red)'}">${fmtCurrency(Math.abs(r.transaction_amount||0))}</td>
-        <td><span class="card-badge ${r.status==='approved'?'badge-green':r.status==='pending'?'badge-amber':'badge-red'}">${r.status||'—'}</span></td>
+        <td><span class="card-badge ${r.status==='approved'?'pill-green':r.status==='pending'?'pill-amber':'pill-red'}">${r.status||'—'}</span></td>
         <td style="font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3)">${String(r.id||'').slice(0,12)}</td>
       </tr>`).join('')}</tbody>
     </table></div>`

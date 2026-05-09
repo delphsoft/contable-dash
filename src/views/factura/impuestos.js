@@ -558,7 +558,7 @@ function renderHTML() {
         ${pagos.length===0?`<div style="text-align:center;padding:48px;color:var(--txt3);font-size:13px">Sin pagos registrados. Usá "+ Registrar pago" para cargar.</div>`
         :pagos.map((p,i)=>`
           <div style="display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:${i<pagos.length-1?'0.5px solid var(--border)':'none'};font-size:12px">
-            <span class="card-badge ${p.pagado?'badge-green':'badge-red'}" style="font-size:10px;min-width:64px;text-align:center">${p.pagado?'Pagado':'Pendiente'}</span>
+            <span class="card-badge ${p.pagado?'pill-green':'pill-red'}" style="font-size:10px;min-width:64px;text-align:center">${p.pagado?'Pagado':'Pendiente'}</span>
             <span style="flex:1;color:var(--txt)">${p.concepto.replace('_',' ')} — ${p.periodo}</span>
             <span style="color:var(--txt2);font-size:11px">${p.fecha_pago||'—'}</span>
             <span style="font-weight:600;color:var(--txt)">${fmt(p.monto)}</span>
@@ -582,7 +582,7 @@ function renderHTML() {
         <div class="card" style="padding:0;overflow:hidden;margin-bottom:12px">
           ${comprobantes.map((c,i)=>`
             <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:${i<comprobantes.length-1?'0.5px solid var(--border)':'none'};font-size:12px">
-              <span class="card-badge badge-purple" style="font-size:9.5px">${CBTE_LABELS[c.tipoComprobante]||'C'+c.tipoComprobante}</span>
+              <span class="pill pill-purple" style="font-size:9.5px">${CBTE_LABELS[c.tipoComprobante]||'C'+c.tipoComprobante}</span>
               <div style="flex:1">
                 <div style="font-weight:500;color:var(--txt)">${c.razonSocialEmisor}</div>
                 <div style="font-size:10.5px;color:var(--txt2)">${c.fechaEmision}</div>
@@ -618,7 +618,7 @@ function renderConfigModal() {
   ]
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:440px;max-height:90vh;overflow-y:auto">
+      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:440px;max-height:90vh;overflow-y:auto">
         <div style="display:flex;justify-content:space-between;margin-bottom:20px">
           <div>
             <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Configuración fiscal</div>
@@ -649,7 +649,7 @@ function renderPagoModal() {
   if (!S.showPagoModal) return ''
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
+      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
         <div style="display:flex;justify-content:space-between;margin-bottom:20px">
           <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Registrar pago</div>
           <button id="btn-close-pago" style="background:none;border:none;color:var(--txt3);font-size:20px;cursor:pointer">×</button>
@@ -680,7 +680,7 @@ function renderGastoModal() {
   const g = S.newGasto
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
+      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
         <div style="display:flex;justify-content:space-between;margin-bottom:20px">
           <div>
             <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Agregar compra manual</div>

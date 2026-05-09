@@ -31,7 +31,7 @@ export function renderVentas(el) {
       </div>
     </div>
     <div class="card">
-      <div class="card-header"><span class="card-title">CMV por categoría — evolución mensual</span><span class="card-badge badge-blue">apilado</span></div>
+      <div class="card-header"><span class="card-title">CMV por categoría — evolución mensual</span><span class="pill pill-blue">apilado</span></div>
       <div class="chart-wrap h260"><canvas id="v3"></canvas></div>
       <div class="legend">
         <div class="legend-item"><div class="legend-dot" style="background:#4f8ef7"></div>Embutidos</div>

@@ -6,103 +6,116 @@
   <title>FacturaFácil + Contable</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="/src/style.css"/>
 </head>
 <body>
 <div id="app">
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo-mark">FF</div>
-      <span class="logo-text">FacturaFácil</span>
+
+  <!-- ── Floating pill rail ── -->
+  <aside class="rail" role="navigation" aria-label="Navegación principal">
+    <div class="rail-logo" aria-label="FacturaFácil">
+      <i class="ti ti-chart-dots-3"></i>
     </div>
-    <nav class="sidebar-nav">
 
-      <!-- CONTABLE SECTION — first -->
-      <div class="nav-section-label">Contable</div>
-      <a class="nav-item active" data-view="ct-overview">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".3"/></svg>
-        <span>Overview</span>
-      </a>
-      <a class="nav-item" data-view="ct-estado">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 5h6M5 8h4M5 11h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        <span>Estado Contable</span>
-      </a>
-      <a class="nav-item" data-view="ct-proveedores">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <span>Proveedores</span>
-      </a>
-      <a class="nav-item" data-view="ct-breakeven">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 14 L14 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="2.5" fill="currentColor"/></svg>
-        <span>Break-even</span>
-      </a>
-      <a class="nav-item" data-view="ct-alertas">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 13H2L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 7v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r=".75" fill="currentColor"/></svg>
-        <span>Alertas</span>
-      </a>
-      <a class="nav-item" data-view="ct-drive">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 12l4-7h8l-4 7H2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 12l4-7" stroke="currentColor" stroke-width="1.2"/></svg>
-        <span>Google Drive</span>
-        <span class="nav-badge">NEW</span>
-      </a>
+    <div class="rail-section-dot" title="Contable"></div>
 
-      <!-- FACTURACIÓN SECTION — below contable -->
-      <div class="nav-section-label" style="margin-top:12px">Facturación</div>
-      <a class="nav-item" data-view="ff-dashboard">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".6"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity=".3"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".3"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity=".2"/></svg>
-        <span>Dashboard</span>
-      </a>
-      <a class="nav-item" data-view="ff-facturas">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        <span>Mis Facturas</span>
-      </a>
-      <a class="nav-item" data-view="ff-mercadopago">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>MercadoPago</span>
-      </a>
-      <a class="nav-item" data-view="ff-impuestos">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 12 L5 8 L8 10 L11 5 L14 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Impuestos</span>
-      </a>
+    <button class="rail-item active" data-view="ct-overview" aria-label="Overview">
+      <i class="ti ti-layout-dashboard"></i>
+      <span class="rail-tooltip">Overview</span>
+    </button>
+    <button class="rail-item" data-view="ct-estado" aria-label="Estado Contable">
+      <i class="ti ti-file-analytics"></i>
+      <span class="rail-tooltip">Estado Contable</span>
+    </button>
+    <button class="rail-item" data-view="ct-proveedores" aria-label="Proveedores">
+      <i class="ti ti-users"></i>
+      <span class="rail-tooltip">Proveedores</span>
+    </button>
+    <button class="rail-item" data-view="ct-breakeven" aria-label="Break-even">
+      <i class="ti ti-target"></i>
+      <span class="rail-tooltip">Break-even</span>
+    </button>
+    <button class="rail-item" data-view="ct-alertas" aria-label="Alertas" style="position:relative">
+      <i class="ti ti-bell"></i>
+      <span class="rail-badge">3</span>
+      <span class="rail-tooltip">Alertas</span>
+    </button>
+    <button class="rail-item" data-view="ct-drive" aria-label="Google Drive">
+      <i class="ti ti-brand-google-drive"></i>
+      <span class="rail-tooltip">Google Drive</span>
+    </button>
 
-      <!-- SUPER ADMIN — bottom, no label, subtle -->
-      <div style="margin-top:auto;padding-top:12px;border-top:0.5px solid var(--border)">
-        <a class="nav-item" data-view="ct-superadmin" style="opacity:.5">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <span>Super Admin</span>
-        </a>
-      </div>
-    </nav>
+    <div class="rail-divider"></div>
 
-    <div class="sidebar-footer">
-      <div class="period-badge">Oct 25 — Feb 26</div>
-      <div class="sidebar-meta">5 meses · datos reales</div>
-    </div>
+    <button class="rail-item" data-view="ff-dashboard" aria-label="Facturas">
+      <i class="ti ti-receipt"></i>
+      <span class="rail-tooltip">Facturas</span>
+    </button>
+    <button class="rail-item" data-view="ff-mercadopago" aria-label="MercadoPago">
+      <i class="ti ti-credit-card"></i>
+      <span class="rail-tooltip">MercadoPago</span>
+    </button>
+    <button class="rail-item" data-view="ff-impuestos" aria-label="Impuestos">
+      <i class="ti ti-receipt-tax"></i>
+      <span class="rail-tooltip">Impuestos</span>
+    </button>
+
+    <div class="rail-divider"></div>
+
+    <button class="rail-item" data-view="ct-agente" aria-label="Asesor IA" style="position:relative">
+      <i class="ti ti-robot"></i>
+      <span class="rail-online"></span>
+      <span class="rail-tooltip">Asesor IA</span>
+    </button>
+
+    <div class="rail-spacer"></div>
+
+    <button class="rail-item" data-view="ct-superadmin" aria-label="Super Admin" style="opacity:.45">
+      <i class="ti ti-lock"></i>
+      <span class="rail-tooltip">Super Admin</span>
+    </button>
+    <div class="rail-avatar" aria-label="Perfil">A</div>
   </aside>
 
+  <!-- ── Main ── -->
   <main class="main">
+
+    <!-- Dynamic topbar -->
     <header class="topbar">
-      <div>
+      <div class="topbar-left">
         <h1 class="page-title" id="page-title">Overview</h1>
-        <div class="page-sub" id="page-sub">Resumen ejecutivo del período</div>
+        <p class="page-sub" id="page-sub">Resumen ejecutivo del período</p>
       </div>
       <div class="topbar-right">
-        <div class="status-dot"></div>
-        <span class="status-text">Conectado</span>
+        <div class="period-chips" id="period-chips">
+          <button class="period-chip active" data-period="all">Todo el período</button>
+          <button class="period-chip" data-period="dic">Dic-25</button>
+          <button class="period-chip" data-period="ene">Ene-26</button>
+          <button class="period-chip" data-period="feb">Feb-26</button>
+        </div>
+        <button class="btn-icon" aria-label="Buscar"><i class="ti ti-search"></i></button>
+        <button class="btn-icon" aria-label="Notificaciones"><i class="ti ti-bell"></i></button>
+        <button class="btn-primary" id="topbar-action">
+          <i class="ti ti-sparkles"></i>
+          <span id="topbar-action-label">Analizar ↗</span>
+        </button>
       </div>
     </header>
 
-    <div id="view-ct-overview"   class="view active"></div>
-    <div id="view-ct-estado"     class="view"></div>
+    <!-- Views -->
+    <div id="view-ct-overview"    class="view active"></div>
+    <div id="view-ct-estado"      class="view"></div>
     <div id="view-ct-proveedores" class="view"></div>
-    <div id="view-ct-breakeven" class="view"></div>
-    <div id="view-ct-alertas"    class="view"></div>
-    <div id="view-ct-drive"      class="view"></div>
-    <div id="view-ct-superadmin" class="view"></div>
-    <div id="view-ff-dashboard"  class="view"></div>
-    <div id="view-ff-facturas"   class="view"></div>
+    <div id="view-ct-breakeven"   class="view"></div>
+    <div id="view-ct-alertas"     class="view"></div>
+    <div id="view-ct-drive"       class="view"></div>
+    <div id="view-ct-agente"      class="view"></div>
+    <div id="view-ct-superadmin"  class="view"></div>
+    <div id="view-ff-dashboard"   class="view"></div>
     <div id="view-ff-mercadopago" class="view"></div>
-    <div id="view-ff-impuestos"  class="view"></div>
+    <div id="view-ff-impuestos"   class="view"></div>
   </main>
 </div>
 <script type="module" src="/src/main.js"></script>
