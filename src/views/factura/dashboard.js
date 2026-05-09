@@ -484,7 +484,7 @@ function renderModal(civa) {
 
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:520px;max-height:90vh;overflow-y:auto">
+      <div style="background:var(--card);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:520px;max-height:90vh;overflow-y:auto">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
           <div>
             <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Nueva Factura</div>

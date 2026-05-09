@@ -6,112 +6,100 @@
   <title>FacturaFácil + Contable</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="/src/style.css"/>
 </head>
 <body>
 <div id="app">
 
-  <!-- ── Floating pill rail ── -->
   <aside class="rail" role="navigation" aria-label="Navegación principal">
-    <div class="rail-logo" aria-label="FacturaFácil">
-      <i class="ti ti-chart-dots-3"></i>
-    </div>
+    <div class="rail-logo"><i class="ti ti-chart-dots-3"></i></div>
 
-    <div class="rail-section-dot" title="Contable"></div>
-
+    <!-- Contable -->
     <button class="rail-item active" data-view="ct-overview" aria-label="Overview">
       <i class="ti ti-layout-dashboard"></i>
-      <span class="rail-tooltip">Overview</span>
+      <div class="corner-top"></div>
+      <div class="corner-bottom"></div>
+      <span class="rail-tt">Overview</span>
     </button>
     <button class="rail-item" data-view="ct-estado" aria-label="Estado Contable">
       <i class="ti ti-file-analytics"></i>
-      <span class="rail-tooltip">Estado Contable</span>
+      <span class="rail-tt">Estado Contable</span>
     </button>
     <button class="rail-item" data-view="ct-proveedores" aria-label="Proveedores">
       <i class="ti ti-users"></i>
-      <span class="rail-tooltip">Proveedores</span>
+      <span class="rail-tt">Proveedores</span>
     </button>
     <button class="rail-item" data-view="ct-breakeven" aria-label="Break-even">
       <i class="ti ti-target"></i>
-      <span class="rail-tooltip">Break-even</span>
+      <span class="rail-tt">Break-even</span>
     </button>
-    <button class="rail-item" data-view="ct-alertas" aria-label="Alertas" style="position:relative">
+    <button class="rail-item rail-has-badge" data-view="ct-alertas" aria-label="Alertas">
       <i class="ti ti-bell"></i>
       <span class="rail-badge">3</span>
-      <span class="rail-tooltip">Alertas</span>
+      <span class="rail-tt">Alertas</span>
     </button>
     <button class="rail-item" data-view="ct-drive" aria-label="Google Drive">
       <i class="ti ti-brand-google-drive"></i>
-      <span class="rail-tooltip">Google Drive</span>
+      <span class="rail-tt">Google Drive</span>
     </button>
 
     <div class="rail-divider"></div>
 
+    <!-- Facturación -->
     <button class="rail-item" data-view="ff-dashboard" aria-label="Facturas">
       <i class="ti ti-receipt"></i>
-      <span class="rail-tooltip">Facturas</span>
+      <span class="rail-tt">Facturas</span>
     </button>
     <button class="rail-item" data-view="ff-mercadopago" aria-label="MercadoPago">
       <i class="ti ti-credit-card"></i>
-      <span class="rail-tooltip">MercadoPago</span>
+      <span class="rail-tt">MercadoPago</span>
     </button>
     <button class="rail-item" data-view="ff-impuestos" aria-label="Impuestos">
       <i class="ti ti-receipt-tax"></i>
-      <span class="rail-tooltip">Impuestos</span>
-    </button>
-
-    <div class="rail-divider"></div>
-
-    <button class="rail-item" data-view="ct-agente" aria-label="Asesor IA" style="position:relative">
-      <i class="ti ti-robot"></i>
-      <span class="rail-online"></span>
-      <span class="rail-tooltip">Asesor IA</span>
+      <span class="rail-tt">Impuestos</span>
     </button>
 
     <div class="rail-spacer"></div>
 
-    <button class="rail-item" data-view="ct-superadmin" aria-label="Super Admin" style="opacity:.45">
+    <!-- Super admin — hidden, subtle -->
+    <button class="rail-item rail-admin" data-view="ct-superadmin" aria-label="Super Admin">
       <i class="ti ti-lock"></i>
-      <span class="rail-tooltip">Super Admin</span>
+      <span class="rail-tt">Super Admin</span>
     </button>
     <div class="rail-avatar" aria-label="Perfil">A</div>
   </aside>
 
-  <!-- ── Main ── -->
   <main class="main">
-
-    <!-- Dynamic topbar -->
     <header class="topbar">
       <div class="topbar-left">
         <h1 class="page-title" id="page-title">Overview</h1>
-        <p class="page-sub" id="page-sub">Resumen ejecutivo del período</p>
+        <p class="page-sub" id="page-sub">Oct 2025 — Feb 2026 · 5 meses</p>
       </div>
       <div class="topbar-right">
-        <div class="period-chips" id="period-chips">
-          <button class="period-chip active" data-period="all">Todo el período</button>
-          <button class="period-chip" data-period="dic">Dic-25</button>
-          <button class="period-chip" data-period="ene">Ene-26</button>
-          <button class="period-chip" data-period="feb">Feb-26</button>
+        <div id="period-chips" class="period-chips">
+          <button class="period-chip active">Todo el período</button>
+          <button class="period-chip">Dic-25</button>
+          <button class="period-chip">Ene-26</button>
+          <button class="period-chip">Feb-26</button>
         </div>
         <button class="btn-icon" aria-label="Buscar"><i class="ti ti-search"></i></button>
         <button class="btn-icon" aria-label="Notificaciones"><i class="ti ti-bell"></i></button>
-        <button class="btn-primary" id="topbar-action">
+        <button class="btn-primary" id="topbar-action" style="display:none">
           <i class="ti ti-sparkles"></i>
           <span id="topbar-action-label">Analizar ↗</span>
         </button>
+        <span class="tb-dots">···</span>
       </div>
     </header>
 
-    <!-- Views -->
     <div id="view-ct-overview"    class="view active"></div>
     <div id="view-ct-estado"      class="view"></div>
     <div id="view-ct-proveedores" class="view"></div>
     <div id="view-ct-breakeven"   class="view"></div>
     <div id="view-ct-alertas"     class="view"></div>
     <div id="view-ct-drive"       class="view"></div>
-    <div id="view-ct-agente"      class="view"></div>
     <div id="view-ct-superadmin"  class="view"></div>
     <div id="view-ff-dashboard"   class="view"></div>
     <div id="view-ff-mercadopago" class="view"></div>

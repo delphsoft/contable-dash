@@ -618,7 +618,7 @@ function renderConfigModal() {
   ]
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:440px;max-height:90vh;overflow-y:auto">
+      <div style="background:var(--card);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:440px;max-height:90vh;overflow-y:auto">
         <div style="display:flex;justify-content:space-between;margin-bottom:20px">
           <div>
             <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Configuración fiscal</div>
@@ -649,7 +649,7 @@ function renderPagoModal() {
   if (!S.showPagoModal) return ''
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
+      <div style="background:var(--card);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
         <div style="display:flex;justify-content:space-between;margin-bottom:20px">
           <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Registrar pago</div>
           <button id="btn-close-pago" style="background:none;border:none;color:var(--txt3);font-size:20px;cursor:pointer">×</button>
@@ -680,7 +680,7 @@ function renderGastoModal() {
   const g = S.newGasto
   return `
     <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px">
-      <div style="background:var(--surface);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
+      <div style="background:var(--card);border:0.5px solid var(--border2);border-radius:16px;padding:28px;width:400px">
         <div style="display:flex;justify-content:space-between;margin-bottom:20px">
           <div>
             <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--txt)">Agregar compra manual</div>
