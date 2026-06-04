@@ -45,6 +45,24 @@
       <span class="rail-tt">Google Drive</span>
     </button>
 
+    <!-- Nuevos módulos contables -->
+    <button class="rail-item" data-view="ct-iva" aria-label="IVA">
+      <i class="ti ti-receipt-tax"></i>
+      <span class="rail-tt">IVA</span>
+    </button>
+    <button class="rail-item" data-view="ct-compras" aria-label="Compras">
+      <i class="ti ti-shopping-cart"></i>
+      <span class="rail-tt">Compras</span>
+    </button>
+    <button class="rail-item" data-view="ct-sueldos" aria-label="Sueldos">
+      <i class="ti ti-users-group"></i>
+      <span class="rail-tt">Sueldos</span>
+    </button>
+    <button class="rail-item" data-view="ct-cron" aria-label="Sync ARCA">
+      <i class="ti ti-refresh"></i>
+      <span class="rail-tt">Sync ARCA</span>
+    </button>
+
     <div class="rail-divider"></div>
 
     <!-- Facturación -->
@@ -94,6 +112,7 @@
       </div>
     </header>
 
+    <!-- Vistas existentes -->
     <div id="view-ct-overview"    class="view active"></div>
     <div id="view-ct-estado"      class="view"></div>
     <div id="view-ct-proveedores" class="view"></div>
@@ -104,7 +123,14 @@
     <div id="view-ff-dashboard"   class="view"></div>
     <div id="view-ff-mercadopago" class="view"></div>
     <div id="view-ff-impuestos"   class="view"></div>
+
+    <!-- Vistas nuevas -->
+    <div id="view-ct-iva"         class="view"></div>
+    <div id="view-ct-compras"     class="view"></div>
+    <div id="view-ct-sueldos"     class="view"></div>
+    <div id="view-ct-cron"        class="view"></div>
   </main>
+
 </div>
 <script type="module" src="/src/main.js"></script>
 </body>
