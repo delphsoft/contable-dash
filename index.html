@@ -16,7 +16,6 @@
   <aside class="rail" role="navigation" aria-label="Navegación principal">
     <div class="rail-logo"><i class="ti ti-chart-dots-3"></i></div>
 
-    <!-- Contable -->
     <button class="rail-item active" data-view="ct-overview" aria-label="Overview">
       <i class="ti ti-layout-dashboard"></i>
       <div class="corner-top"></div>
@@ -45,43 +44,19 @@
       <span class="rail-tt">Google Drive</span>
     </button>
 
-    <!-- Nuevos módulos contables -->
-    <button class="rail-item" data-view="ct-iva" aria-label="IVA">
-      <i class="ti ti-receipt-tax"></i>
-      <span class="rail-tt">IVA</span>
-    </button>
-    <button class="rail-item" data-view="ct-compras" aria-label="Compras">
-      <i class="ti ti-shopping-cart"></i>
-      <span class="rail-tt">Compras</span>
-    </button>
-    <button class="rail-item" data-view="ct-sueldos" aria-label="Sueldos">
-      <i class="ti ti-users-group"></i>
-      <span class="rail-tt">Sueldos</span>
-    </button>
-    <button class="rail-item" data-view="ct-cron" aria-label="Sync ARCA">
-      <i class="ti ti-refresh"></i>
-      <span class="rail-tt">Sync ARCA</span>
-    </button>
-
     <div class="rail-divider"></div>
 
-    <!-- Facturación -->
-    <button class="rail-item" data-view="ff-dashboard" aria-label="Facturas">
-      <i class="ti ti-receipt"></i>
-      <span class="rail-tt">Facturas</span>
-    </button>
-    <button class="rail-item" data-view="ff-mercadopago" aria-label="MercadoPago">
-      <i class="ti ti-credit-card"></i>
-      <span class="rail-tt">MercadoPago</span>
-    </button>
-    <button class="rail-item" data-view="ff-impuestos" aria-label="Impuestos">
+    <button class="rail-item" data-view="ct-fiscal" aria-label="Fiscal">
       <i class="ti ti-receipt-tax"></i>
-      <span class="rail-tt">Impuestos</span>
+      <span class="rail-tt">Fiscal</span>
+    </button>
+    <button class="rail-item" data-view="ff-facturacion" aria-label="Facturación">
+      <i class="ti ti-receipt"></i>
+      <span class="rail-tt">Facturación</span>
     </button>
 
     <div class="rail-spacer"></div>
 
-    <!-- Super admin — hidden, subtle -->
     <button class="rail-item rail-admin" data-view="ct-superadmin" aria-label="Super Admin">
       <i class="ti ti-lock"></i>
       <span class="rail-tt">Super Admin</span>
@@ -112,23 +87,15 @@
       </div>
     </header>
 
-    <!-- Vistas existentes -->
     <div id="view-ct-overview"    class="view active"></div>
     <div id="view-ct-estado"      class="view"></div>
     <div id="view-ct-proveedores" class="view"></div>
     <div id="view-ct-breakeven"   class="view"></div>
     <div id="view-ct-alertas"     class="view"></div>
     <div id="view-ct-drive"       class="view"></div>
+    <div id="view-ct-fiscal"      class="view"></div>
+    <div id="view-ff-facturacion" class="view"></div>
     <div id="view-ct-superadmin"  class="view"></div>
-    <div id="view-ff-dashboard"   class="view"></div>
-    <div id="view-ff-mercadopago" class="view"></div>
-    <div id="view-ff-impuestos"   class="view"></div>
-
-    <!-- Vistas nuevas -->
-    <div id="view-ct-iva"         class="view"></div>
-    <div id="view-ct-compras"     class="view"></div>
-    <div id="view-ct-sueldos"     class="view"></div>
-    <div id="view-ct-cron"        class="view"></div>
   </main>
 
 </div>
