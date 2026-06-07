@@ -86,5 +86,26 @@ document.querySelectorAll('.period-chip').forEach(chip => {
     chip.classList.add('active')
   })
 })
+// Verificar sesión antes de cargar el dashboard
+async function checkAuth() {
+  const token = localStorage.getItem('ff_jwt')
+  if (!token) {
+    showAuthModal()
+    return false
+  }
+  // Verificar que el JWT no esté vencido
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]))
+    if (payload.exp && payload.exp < Date.now() / 1000) {
+      localStorage.removeItem('ff_jwt')
+      showAuthModal()
+      return false
+    }
+    return true
+  } catch {
+    showAuthModal()
+    return false
+  }
+}
 
 navigate('ct-overview')
