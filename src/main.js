@@ -86,54 +86,12 @@ document.querySelectorAll('.period-chip').forEach(chip => {
     chip.classList.add('active')
   })
 })
-// Verificar sesión antes de cargar el dashboard
-async function checkAuth() {
-  const token = localStorage.getItem('ff_jwt')
-  if (!token) {
-    showAuthModal()
-    return false
-  }
-  // Verificar que el JWT no esté vencido
-  try {
-    const payload = JSON.parse(atob(token.split('.')[1]))
-    if (payload.exp && payload.exp < Date.now() / 1000) {
-      localStorage.removeItem('ff_jwt')
-      showAuthModal()
-      return false
-    }
-    return true
-  } catch {
-    showAuthModal()
-    return false
-  }
-}
-// Antes
-navigate('ct-overview')
-
-// Después
-(async function() {
-  const token = localStorage.getItem('ff_jwt')
-  let valid = false
-  if (token) {
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1] + '=='))
-      valid = !payload.exp || payload.exp > Date.now() / 1000
-    } catch { valid = false }
-  }
-  if (!valid) {
-    localStorage.removeItem('ff_jwt')
-    window.location.href = 'https://www.pymestudio.xyz/login?redirect=' 
-      + encodeURIComponent(window.location.origin)
-    return
-  }
-  navigate('ct-overview')
-})()
-
+// Auth guard — único, definitivo
 ;(async function () {
   const JWT_KEY   = 'ff_jwt'
   const LOGIN_URL = 'https://www.pymestudio.xyz/login'
 
-  // Si venimos de un redirect post-login, el token llega en ?token=
+  // Token que viene en ?token= luego del redirect post-login
   const urlParams = new URLSearchParams(window.location.search)
   const urlToken  = urlParams.get('token')
   if (urlToken) {
@@ -141,21 +99,22 @@ navigate('ct-overview')
     window.history.replaceState({}, '', window.location.pathname + window.location.hash)
   }
 
-  // Validar JWT (decodificación client-side, sin crypto)
+  // Validar JWT
   const token = localStorage.getItem(JWT_KEY)
   let valid = false
   if (token) {
     try {
-      const b64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')
-      const payload = JSON.parse(atob(b64 + '=='.slice(b64.length % 4 ? b64.length % 4 - 4 : 0).replace(/^={0}$/, '')))
+      const parts = token.split('.')
+      const pad   = parts[1].length % 4
+      const b64   = parts[1].replace(/-/g, '+').replace(/_/g, '/') + (pad ? '='.repeat(4 - pad) : '')
+      const payload = JSON.parse(atob(b64))
       valid = !payload.exp || payload.exp > Date.now() / 1000
     } catch { valid = false }
   }
 
   if (!valid) {
     localStorage.removeItem(JWT_KEY)
-    const redirectUrl = encodeURIComponent(window.location.origin)
-    window.location.href = LOGIN_URL + '?redirect=' + redirectUrl
+    window.location.href = LOGIN_URL + '?redirect=' + encodeURIComponent(window.location.origin)
     return
   }
 
