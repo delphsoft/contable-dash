@@ -107,5 +107,26 @@ async function checkAuth() {
     return false
   }
 }
+// Antes
+navigate('ct-overview')
+
+// Después
+(async function() {
+  const token = localStorage.getItem('ff_jwt')
+  let valid = false
+  if (token) {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1] + '=='))
+      valid = !payload.exp || payload.exp > Date.now() / 1000
+    } catch { valid = false }
+  }
+  if (!valid) {
+    localStorage.removeItem('ff_jwt')
+    window.location.href = 'https://www.pymestudio.xyz/login?redirect=' 
+      + encodeURIComponent(window.location.origin)
+    return
+  }
+  navigate('ct-overview')
+})()
 
 navigate('ct-overview')
