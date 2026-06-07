@@ -129,4 +129,35 @@ navigate('ct-overview')
   navigate('ct-overview')
 })()
 
-navigate('ct-overview')
+;(async function () {
+  const JWT_KEY   = 'ff_jwt'
+  const LOGIN_URL = 'https://www.pymestudio.xyz/login'
+
+  // Si venimos de un redirect post-login, el token llega en ?token=
+  const urlParams = new URLSearchParams(window.location.search)
+  const urlToken  = urlParams.get('token')
+  if (urlToken) {
+    localStorage.setItem(JWT_KEY, urlToken)
+    window.history.replaceState({}, '', window.location.pathname + window.location.hash)
+  }
+
+  // Validar JWT (decodificación client-side, sin crypto)
+  const token = localStorage.getItem(JWT_KEY)
+  let valid = false
+  if (token) {
+    try {
+      const b64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')
+      const payload = JSON.parse(atob(b64 + '=='.slice(b64.length % 4 ? b64.length % 4 - 4 : 0).replace(/^={0}$/, '')))
+      valid = !payload.exp || payload.exp > Date.now() / 1000
+    } catch { valid = false }
+  }
+
+  if (!valid) {
+    localStorage.removeItem(JWT_KEY)
+    const redirectUrl = encodeURIComponent(window.location.origin)
+    window.location.href = LOGIN_URL + '?redirect=' + redirectUrl
+    return
+  }
+
+  navigate('ct-overview')
+})()
