@@ -266,7 +266,7 @@ export function renderCumplimiento(container) {
     var p = ci('#cum-periodo').value
     setBtnLoading('btn-f931', true)
     try {
-      var r = await fetch('/api/f931-sicoss', { method:'POST', headers:getHeaders(), body:JSON.stringify({ periodo:p }) })
+      var r = await fetch('/api/fiscal?action=f931', { method:'POST', headers:getHeaders(), body:JSON.stringify({ periodo:p }) })
       if (!r.ok) { var e = await r.json(); throw new Error(e.error || 'Error') }
       var blob = await r.blob()
       var a = document.createElement('a'); a.href = URL.createObjectURL(blob)
@@ -279,7 +279,7 @@ export function renderCumplimiento(container) {
   ci('#btn-vep-f931').addEventListener('click', async function() {
     var p = ci('#cum-periodo').value
     try {
-      var r = await fetch('/api/vep-link?tipo=f931&periodo=' + p, { headers:getHeaders() })
+      var r = await fetch('/api/fiscal?action=vep&tipo=f931&periodo=' + p, { headers:getHeaders() })
       var d = await r.json()
       if (d.url) { window.open(d.url, '_blank'); showMsg('f931-msg', 'info', '↗ Abriendo ARCA con VEP pre-cargado — ' + d.label) }
     } catch (_) { showMsg('f931-msg', 'warn', 'Error generando link VEP. Verificá la conexión.') }
@@ -288,7 +288,7 @@ export function renderCumplimiento(container) {
   ci('#btn-vep-iva').addEventListener('click', async function() {
     var p = ci('#cum-periodo').value
     try {
-      var r = await fetch('/api/vep-link?tipo=iva&periodo=' + p, { headers:getHeaders() })
+      var r = await fetch('/api/fiscal?action=vep&tipo=iva&periodo=' + p, { headers:getHeaders() })
       var d = await r.json()
       if (d.url) { window.open(d.url, '_blank'); showMsg('vep-iva-msg', 'info', '↗ Abriendo ARCA con VEP pre-cargado — ' + d.label) }
     } catch (_) { showMsg('vep-iva-msg', 'warn', 'Error calculando VEP IVA.') }
@@ -305,7 +305,7 @@ export function renderCumplimiento(container) {
     var p = ci('#cum-periodo').value
     setBtnLoading('btn-sicore', true)
     try {
-      var r = await fetch('/api/sicore-retencion', { method:'POST', headers:getHeaders(), body:JSON.stringify({ periodo:p }) })
+      var r = await fetch('/api/fiscal?action=sicore', { method:'POST', headers:getHeaders(), body:JSON.stringify({ periodo:p }) })
       if (!r.ok) { var e = await r.json(); throw new Error(e.error || 'Error') }
       var ct = r.headers.get('Content-Type') || ''
       if (ct.includes('text')) {
@@ -324,7 +324,7 @@ export function renderCumplimiento(container) {
   ci('#btn-vep-sicore').addEventListener('click', async function() {
     var p = ci('#cum-periodo').value
     try {
-      var r = await fetch('/api/vep-link?tipo=sicore&periodo=' + p, { headers:getHeaders() })
+      var r = await fetch('/api/fiscal?action=vep&tipo=sicore&periodo=' + p, { headers:getHeaders() })
       var d = await r.json()
       if (d.url) { window.open(d.url, '_blank'); showMsg('sicore-msg', 'info', '↗ Abriendo ARCA con VEP pre-cargado — ' + d.label) }
     } catch (_) { showMsg('sicore-msg', 'warn', 'Error generando VEP retenciones.') }
