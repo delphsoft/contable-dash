@@ -8,6 +8,8 @@ import { renderDrive }           from './views/contable/drive.js'
 import { renderSuperAdmin }      from './views/contable/superadmin.js'
 import { renderFiscal }          from './views/contable/fiscal.js'
 import { renderFacturacion }     from './views/contable/facturacion.js'
+import { renderVencimientos, restaurarCumplidos } from './vencimientos.js'
+import './vencimientos.css'
 
 const VIEWS = {
   'ct-overview':    { render: renderOverview,       title:'Overview',         sub:'Oct 2025 — Feb 2026 · 5 meses',             action:'Analizar ↗',       prompt:'Dame un análisis ejecutivo del negocio',                                       showPeriod:true  },
@@ -18,12 +20,13 @@ const VIEWS = {
   'ct-drive':       { render: renderDrive,          title:'Google Drive',     sub:'Sincronizar datos desde .xlsx',              action:null, prompt:null,   showPeriod:false },
   'ct-fiscal':      { render: renderFiscal,         title:'Fiscal',           sub:'IVA · Compras · Sueldos · Impuestos · Sync', action:null, prompt:null,   showPeriod:false },
   'ff-facturacion': { render: renderFacturacion,    title:'Facturación',      sub:'Facturas ARCA · MercadoPago',                action:null, prompt:null,   showPeriod:false },
+  'ct-vencimientos':{ render: renderVencimientos,   title:'Vencimientos',     sub:'Calendario fiscal ARCA 2026',               action:null, prompt:null,   showPeriod:false },
   'ct-superadmin':  { render: renderSuperAdmin,     title:'Super Admin',      sub:'Panel estratégico — acceso restringido',     action:null, prompt:null,   showPeriod:false, nomemo:true },
 }
 
 let current = null
 const rendered = new Set()
-const mutableViews = new Set(['ct-fiscal','ff-facturacion','ct-superadmin'])
+const mutableViews = new Set(['ct-fiscal','ff-facturacion','ct-superadmin','ct-vencimientos'])
 
 function setActiveRail(view) {
   document.querySelectorAll('.rail-item[data-view]').forEach(el => {

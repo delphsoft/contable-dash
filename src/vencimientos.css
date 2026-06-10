@@ -1,0 +1,188 @@
+.venc-root {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.venc-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 4px;
+}
+
+.venc-desc {
+  color: #64748b;
+  font-size: .875rem;
+  margin: 0 0 24px;
+}
+
+/* Resumen */
+.venc-resumen {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.venc-stat {
+  flex: 1;
+  min-width: 110px;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid transparent;
+}
+
+.venc-stat span {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.venc-stat small {
+  font-size: .75rem;
+  color: #94a3b8;
+}
+
+.venc-stat-vencido { background: #2d0e0e; border-color: #7f1d1d; }
+.venc-stat-vencido span { color: #f87171; }
+.venc-stat-critico { background: #2d1b00; border-color: #78350f; }
+.venc-stat-critico span { color: #fb923c; }
+.venc-stat-proximo { background: #1e2a1a; border-color: #14532d; }
+.venc-stat-proximo span { color: #4ade80; }
+.venc-stat-ok      { background: #1a2332; border-color: #1e3a5f; }
+.venc-stat-ok span { color: #60a5fa; }
+
+/* Filtros */
+.venc-filtros {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.venc-filtro {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: .8125rem;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.venc-filtro:hover {
+  border-color: #64748b;
+  color: #e2e8f0;
+}
+
+.venc-filtro.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+/* Grid de cards */
+.venc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.venc-empty {
+  color: #64748b;
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 32px;
+}
+
+/* Cards */
+.venc-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+  transition: border-color .15s, transform .1s;
+}
+
+.venc-card:hover { transform: translateY(-2px); }
+
+.venc-vencido { border-color: #7f1d1d; background: #1f0d0d; }
+.venc-critico { border-color: #92400e; background: #1c1208; }
+.venc-proximo { border-color: #166534; }
+.venc-done    { opacity: .55; }
+
+.venc-badge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.venc-nombre {
+  font-size: .9375rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.venc-fecha {
+  font-size: .8125rem;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.venc-dias {
+  font-size: .8125rem;
+  font-weight: 700;
+}
+
+.venc-dias-vencido { color: #f87171; }
+.venc-dias-critico { color: #fb923c; }
+.venc-dias-proximo { color: #4ade80; }
+.venc-dias-ok      { color: #60a5fa; }
+
+.venc-btn-cumplir {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #334155;
+  border: none;
+  color: #94a3b8;
+  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: .875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, color .15s;
+}
+
+.venc-btn-cumplir:hover {
+  background: #22c55e;
+  color: #fff;
+}
+
+.venc-done .venc-btn-cumplir {
+  background: #1e3a2a;
+  color: #4ade80;
+}
+
+@media (max-width: 600px) {
+  .venc-root { padding: 16px; }
+  .venc-grid { grid-template-columns: 1fr; }
+  .venc-resumen { gap: 8px; }
+  .venc-stat { min-width: 80px; padding: 10px 12px; }
+  .venc-stat span { font-size: 1.35rem; }
+}
