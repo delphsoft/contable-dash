@@ -10,6 +10,8 @@ import { renderFiscal }          from './views/contable/fiscal.js'
 import { renderFacturacion }     from './views/contable/facturacion.js'
 import { renderVencimientos, restaurarCumplidos } from './vencimientos.js'
 import './vencimientos.css'
+import { renderDiagnostico } from './diagnostico.js'
+import './diagnostico.css'
 
 const VIEWS = {
   'ct-overview':    { render: renderOverview,       title:'Overview',         sub:'Oct 2025 — Feb 2026 · 5 meses',             action:'Analizar ↗',       prompt:'Dame un análisis ejecutivo del negocio',                                       showPeriod:true  },
