@@ -1,204 +1,243 @@
-// Vencimientos ARCA 2026 — motor de calendario fiscal
+// vencimientos.js — Motor de vencimientos fiscales ARCA 2026
+// Stack: Vite + Vanilla JS, string concatenation (sin template literals anidados)
+// Integra con: Supabase (historial de alertas), Resend (emails), nav existente
 
-const VENCIMIENTOS_2026 = [
-  // IVA mensual (responsables inscriptos)
-  { id:'iva-01', nombre:'IVA Enero 2026',     fecha:'2026-02-20', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-02', nombre:'IVA Febrero 2026',   fecha:'2026-03-20', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-03', nombre:'IVA Marzo 2026',     fecha:'2026-04-22', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-04', nombre:'IVA Abril 2026',     fecha:'2026-05-21', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-05', nombre:'IVA Mayo 2026',      fecha:'2026-06-22', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-06', nombre:'IVA Junio 2026',     fecha:'2026-07-21', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-07', nombre:'IVA Julio 2026',     fecha:'2026-08-20', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-08', nombre:'IVA Agosto 2026',    fecha:'2026-09-21', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-09', nombre:'IVA Septiembre 2026',fecha:'2026-10-21', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-10', nombre:'IVA Octubre 2026',   fecha:'2026-11-20', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-11', nombre:'IVA Noviembre 2026', fecha:'2026-12-21', tipo:'IVA',        monto:null, estado:'pendiente' },
-  { id:'iva-12', nombre:'IVA Diciembre 2026', fecha:'2027-01-20', tipo:'IVA',        monto:null, estado:'pendiente' },
+// ─── Calendario ARCA 2026 ─────────────────────────────────────────────────────
+// Fuente: ARCA RG 5616/2024 y calendario oficial 2026
+// Formato: { id, nombre, tipo, dia, meses, descripcion, url }
 
-  // Ganancias — anticipos bimestrales (régimen simplificado personas jurídicas)
-  { id:'gan-01', nombre:'Anticipo Ganancias 1° 2026', fecha:'2026-03-16', tipo:'Ganancias', monto:null, estado:'pendiente' },
-  { id:'gan-02', nombre:'Anticipo Ganancias 2° 2026', fecha:'2026-05-15', tipo:'Ganancias', monto:null, estado:'pendiente' },
-  { id:'gan-03', nombre:'Anticipo Ganancias 3° 2026', fecha:'2026-07-15', tipo:'Ganancias', monto:null, estado:'pendiente' },
-  { id:'gan-04', nombre:'Anticipo Ganancias 4° 2026', fecha:'2026-09-15', tipo:'Ganancias', monto:null, estado:'pendiente' },
-  { id:'gan-05', nombre:'Anticipo Ganancias 5° 2026', fecha:'2026-11-16', tipo:'Ganancias', monto:null, estado:'pendiente' },
-  { id:'gan-06', nombre:'DDJJ Ganancias 2025',         fecha:'2026-05-11', tipo:'Ganancias', monto:null, estado:'pendiente' },
+var VENCIMIENTOS_2026 = [
+
+  // IVA — vence el día 20 según terminación CUIT (ajustado por feriados)
+  { id: 'iva-01', nombre: 'IVA Enero 2026',    tipo: 'iva',       fecha: '2026-02-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-02', nombre: 'IVA Febrero 2026',  tipo: 'iva',       fecha: '2026-03-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-03', nombre: 'IVA Marzo 2026',    tipo: 'iva',       fecha: '2026-04-21', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-04', nombre: 'IVA Abril 2026',    tipo: 'iva',       fecha: '2026-05-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-05', nombre: 'IVA Mayo 2026',     tipo: 'iva',       fecha: '2026-06-22', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-06', nombre: 'IVA Junio 2026',    tipo: 'iva',       fecha: '2026-07-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-07', nombre: 'IVA Julio 2026',    tipo: 'iva',       fecha: '2026-08-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-08', nombre: 'IVA Agosto 2026',   tipo: 'iva',       fecha: '2026-09-21', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-09', nombre: 'IVA Septiembre 2026', tipo: 'iva',     fecha: '2026-10-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-10', nombre: 'IVA Octubre 2026',  tipo: 'iva',       fecha: '2026-11-20', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+  { id: 'iva-11', nombre: 'IVA Noviembre 2026', tipo: 'iva',      fecha: '2026-12-21', cuit_term: 'todos', descripcion: 'Presentación y pago Declaración Jurada IVA mensual', url: 'https://www.arca.gob.ar' },
+
+  // F931 / Sueldos — vence el 10 de cada mes (SICOSS)
+  { id: 'f931-01', nombre: 'F931 Enero 2026',   tipo: 'f931',     fecha: '2026-02-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-02', nombre: 'F931 Febrero 2026', tipo: 'f931',     fecha: '2026-03-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-03', nombre: 'F931 Marzo 2026',   tipo: 'f931',     fecha: '2026-04-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-04', nombre: 'F931 Abril 2026',   tipo: 'f931',     fecha: '2026-05-12', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-05', nombre: 'F931 Mayo 2026',    tipo: 'f931',     fecha: '2026-06-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-06', nombre: 'F931 Junio 2026',   tipo: 'f931',     fecha: '2026-07-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-07', nombre: 'F931 Julio 2026',   tipo: 'f931',     fecha: '2026-08-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-08', nombre: 'F931 Agosto 2026',  tipo: 'f931',     fecha: '2026-09-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-09', nombre: 'F931 Septiembre 2026', tipo: 'f931',  fecha: '2026-10-12', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-10', nombre: 'F931 Octubre 2026', tipo: 'f931',     fecha: '2026-11-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+  { id: 'f931-11', nombre: 'F931 Noviembre 2026', tipo: 'f931',   fecha: '2026-12-10', cuit_term: 'todos', descripcion: 'Presentación F931 y pago cargas sociales', url: 'https://www.arca.gob.ar' },
+
+  // Ganancias — anticipos bimestrales RI, pago en cuotas
+  { id: 'gan-ant1', nombre: 'Ganancias Anticipo 1/5',  tipo: 'ganancias', fecha: '2026-03-20', cuit_term: 'todos', descripcion: 'Anticipo 1° cuota impuesto a las Ganancias 2026 (RI)', url: 'https://www.arca.gob.ar' },
+  { id: 'gan-ant2', nombre: 'Ganancias Anticipo 2/5',  tipo: 'ganancias', fecha: '2026-05-20', cuit_term: 'todos', descripcion: 'Anticipo 2° cuota impuesto a las Ganancias 2026 (RI)', url: 'https://www.arca.gob.ar' },
+  { id: 'gan-ant3', nombre: 'Ganancias Anticipo 3/5',  tipo: 'ganancias', fecha: '2026-07-20', cuit_term: 'todos', descripcion: 'Anticipo 3° cuota impuesto a las Ganancias 2026 (RI)', url: 'https://www.arca.gob.ar' },
+  { id: 'gan-ant4', nombre: 'Ganancias Anticipo 4/5',  tipo: 'ganancias', fecha: '2026-09-21', cuit_term: 'todos', descripcion: 'Anticipo 4° cuota impuesto a las Ganancias 2026 (RI)', url: 'https://www.arca.gob.ar' },
+  { id: 'gan-ant5', nombre: 'Ganancias Anticipo 5/5',  tipo: 'ganancias', fecha: '2026-11-20', cuit_term: 'todos', descripcion: 'Anticipo 5° cuota impuesto a las Ganancias 2026 (RI)', url: 'https://www.arca.gob.ar' },
+  { id: 'gan-dj',   nombre: 'Ganancias DJ Anual 2025', tipo: 'ganancias', fecha: '2026-06-22', cuit_term: 'todos', descripcion: 'Declaración Jurada anual Ganancias período 2025', url: 'https://www.arca.gob.ar' },
+
+  // Monotributo — recategorización y cuota mensual
+  { id: 'mono-recateg-1', nombre: 'Recategorización Monotributo', tipo: 'monotributo', fecha: '2026-01-20', cuit_term: 'todos', descripcion: 'Recategorización cuatrimestral (enero): revisá tu categoría actual', url: 'https://www.arca.gob.ar' },
+  { id: 'mono-recateg-2', nombre: 'Recategorización Monotributo', tipo: 'monotributo', fecha: '2026-05-20', cuit_term: 'todos', descripcion: 'Recategorización cuatrimestral (mayo)', url: 'https://www.arca.gob.ar' },
+  { id: 'mono-recateg-3', nombre: 'Recategorización Monotributo', tipo: 'monotributo', fecha: '2026-09-21', cuit_term: 'todos', descripcion: 'Recategorización cuatrimestral (septiembre)', url: 'https://www.arca.gob.ar' },
+
+  // SICORE — retenciones, vence con IVA (~día 18-22 según CUIT)
+  { id: 'sicore-q1', nombre: 'SICORE 1° quincena Enero',  tipo: 'sicore', fecha: '2026-01-26', cuit_term: 'todos', descripcion: 'Ingreso retenciones/percepciones 1° quincena enero', url: 'https://www.arca.gob.ar' },
+  { id: 'sicore-q2', nombre: 'SICORE 2° quincena Enero',  tipo: 'sicore', fecha: '2026-02-10', cuit_term: 'todos', descripcion: 'Ingreso retenciones/percepciones 2° quincena enero', url: 'https://www.arca.gob.ar' },
+  { id: 'sicore-q3', nombre: 'SICORE 1° quincena Febrero', tipo: 'sicore', fecha: '2026-02-23', cuit_term: 'todos', descripcion: 'Ingreso retenciones/percepciones 1° quincena febrero', url: 'https://www.arca.gob.ar' },
+  { id: 'sicore-q4', nombre: 'SICORE 2° quincena Febrero', tipo: 'sicore', fecha: '2026-03-10', cuit_term: 'todos', descripcion: 'Ingreso retenciones/percepciones 2° quincena febrero', url: 'https://www.arca.gob.ar' },
+  { id: 'sicore-q5', nombre: 'SICORE 1° quincena Marzo',   tipo: 'sicore', fecha: '2026-03-23', cuit_term: 'todos', descripcion: 'Ingreso retenciones/percepciones 1° quincena marzo', url: 'https://www.arca.gob.ar' },
+  { id: 'sicore-q6', nombre: 'SICORE 2° quincena Marzo',   tipo: 'sicore', fecha: '2026-04-10', cuit_term: 'todos', descripcion: 'Ingreso retenciones/percepciones 2° quincena marzo', url: 'https://www.arca.gob.ar' },
 
   // Bienes Personales
-  { id:'bp-01', nombre:'DDJJ Bienes Personales 2025', fecha:'2026-06-22', tipo:'BienesPersonales', monto:null, estado:'pendiente' },
+  { id: 'bp-2025', nombre: 'Bienes Personales DJ 2025', tipo: 'bienes_personales', fecha: '2026-06-22', cuit_term: 'todos', descripcion: 'Declaración Jurada Bienes Personales período fiscal 2025', url: 'https://www.arca.gob.ar' },
+  { id: 'bp-ant1', nombre: 'Bienes Personales Anticipo 1', tipo: 'bienes_personales', fecha: '2026-07-20', cuit_term: 'todos', descripcion: 'Anticipo impuesto Bienes Personales 2026', url: 'https://www.arca.gob.ar' },
+];
 
-  // Ingresos Brutos (CABA — CM05 bimestral ejemplo)
-  { id:'ib-01', nombre:'IIBB Bimestre Ene-Feb 2026',  fecha:'2026-03-20', tipo:'IIBB', monto:null, estado:'pendiente' },
-  { id:'ib-02', nombre:'IIBB Bimestre Mar-Abr 2026',  fecha:'2026-05-20', tipo:'IIBB', monto:null, estado:'pendiente' },
-  { id:'ib-03', nombre:'IIBB Bimestre May-Jun 2026',  fecha:'2026-07-20', tipo:'IIBB', monto:null, estado:'pendiente' },
-  { id:'ib-04', nombre:'IIBB Bimestre Jul-Ago 2026',  fecha:'2026-09-21', tipo:'IIBB', monto:null, estado:'pendiente' },
-  { id:'ib-05', nombre:'IIBB Bimestre Sep-Oct 2026',  fecha:'2026-11-20', tipo:'IIBB', monto:null, estado:'pendiente' },
-  { id:'ib-06', nombre:'IIBB Bimestre Nov-Dic 2026',  fecha:'2027-01-20', tipo:'IIBB', monto:null, estado:'pendiente' },
+// ─── Colores por tipo ─────────────────────────────────────────────────────────
+var TIPO_CONFIG = {
+  iva:             { label: 'IVA',             color: '#185FA5', bg: '#E6F1FB' },
+  f931:            { label: 'F931 / Sueldos',  color: '#0F6E56', bg: '#E1F5EE' },
+  ganancias:       { label: 'Ganancias',       color: '#854F0B', bg: '#FAEEDA' },
+  monotributo:     { label: 'Monotributo',     color: '#534AB7', bg: '#EEEDFE' },
+  sicore:          { label: 'SICORE',          color: '#993C1D', bg: '#FAECE7' },
+  bienes_personales: { label: 'Bienes Pers.', color: '#444441', bg: '#F1EFE8' },
+};
 
-  // Sueldos / cargas sociales
-  { id:'ss-01', nombre:'Cargas Sociales Enero 2026',     fecha:'2026-02-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-02', nombre:'Cargas Sociales Febrero 2026',   fecha:'2026-03-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-03', nombre:'Cargas Sociales Marzo 2026',     fecha:'2026-04-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-04', nombre:'Cargas Sociales Abril 2026',     fecha:'2026-05-11', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-05', nombre:'Cargas Sociales Mayo 2026',      fecha:'2026-06-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-06', nombre:'Cargas Sociales Junio 2026',     fecha:'2026-07-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-07', nombre:'Cargas Sociales Julio 2026',     fecha:'2026-08-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-08', nombre:'Cargas Sociales Agosto 2026',    fecha:'2026-09-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-09', nombre:'Cargas Sociales Septiembre 2026',fecha:'2026-10-12', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-10', nombre:'Cargas Sociales Octubre 2026',   fecha:'2026-11-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-11', nombre:'Cargas Sociales Noviembre 2026', fecha:'2026-12-10', tipo:'Sueldos', monto:null, estado:'pendiente' },
-  { id:'ss-12', nombre:'Cargas Sociales Diciembre 2026', fecha:'2027-01-12', tipo:'Sueldos', monto:null, estado:'pendiente' },
-]
-
-const TIPO_COLOR = {
-  IVA:             { bg:'#1a3a5c', accent:'#3b82f6', label:'IVA' },
-  Ganancias:       { bg:'#1a2e1a', accent:'#22c55e', label:'Ganancias' },
-  BienesPersonales:{ bg:'#2e1a3a', accent:'#a855f7', label:'Bs. Personales' },
-  IIBB:            { bg:'#3a2a1a', accent:'#f97316', label:'IIBB' },
-  Sueldos:         { bg:'#1a2e2e', accent:'#06b6d4', label:'Sueldos' },
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function diasRestantes(fechaStr) {
+  var hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
+  var venc = new Date(fechaStr + 'T00:00:00');
+  return Math.ceil((venc - hoy) / (1000 * 60 * 60 * 24));
 }
 
-const STORAGE_KEY = 'venc_estados_2026'
-
-function cargarEstados() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') } catch { return {} }
+function formatFecha(fechaStr) {
+  var d = new Date(fechaStr + 'T00:00:00');
+  var dias = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+  var meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  return dias[d.getDay()] + ' ' + d.getDate() + ' ' + meses[d.getMonth()];
 }
 
-function guardarEstados(map) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(map))
+function urgencyClass(dias) {
+  if (dias < 0)  return 'venc-vencido';
+  if (dias <= 3)  return 'venc-critico';
+  if (dias <= 10) return 'venc-urgente';
+  if (dias <= 30) return 'venc-proximo';
+  return 'venc-ok';
 }
 
-function aplicarEstados(lista) {
-  const map = cargarEstados()
-  return lista.map(v => ({ ...v, estado: map[v.id] ?? v.estado }))
+function urgencyLabel(dias) {
+  if (dias < 0)   return '⚠ Vencido hace ' + Math.abs(dias) + ' días';
+  if (dias === 0) return '⚠ Vence HOY';
+  if (dias === 1) return '⚡ Vence mañana';
+  if (dias <= 3)  return '⚡ ' + dias + ' días';
+  if (dias <= 10) return '· ' + dias + ' días';
+  return '· ' + dias + ' días';
 }
 
-function hoy() { return new Date().toISOString().split('T')[0] }
+// ─── Render principal ─────────────────────────────────────────────────────────
+export function renderVencimientos() {
+  var hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
 
-function diasRestantes(fecha) {
-  const diff = (new Date(fecha) - new Date(hoy())) / 86400000
-  return Math.ceil(diff)
-}
+  // Filtrar: mostrar los próximos 90 días + vencidos sin cumplir (hasta 30 días atrás)
+  var visibles = VENCIMIENTOS_2026.filter(function(v) {
+    var d = diasRestantes(v.fecha);
+    return d >= -30 && d <= 90;
+  }).sort(function(a, b) {
+    return new Date(a.fecha) - new Date(b.fecha);
+  });
 
-function urgencia(dias) {
-  if (dias < 0)   return 'vencido'
-  if (dias <= 3)  return 'critico'
-  if (dias <= 10) return 'proximo'
-  return 'ok'
-}
+  // Agrupar por urgencia para el resumen
+  var criticos  = visibles.filter(function(v) { return diasRestantes(v.fecha) <= 3 && diasRestantes(v.fecha) >= 0; });
+  var urgentes  = visibles.filter(function(v) { var d = diasRestantes(v.fecha); return d > 3 && d <= 10; });
+  var proximos  = visibles.filter(function(v) { var d = diasRestantes(v.fecha); return d > 10 && d <= 30; });
+  var vencidos  = visibles.filter(function(v) { return diasRestantes(v.fecha) < 0; });
 
-function formatFecha(iso) {
-  const [y, m, d] = iso.split('-')
-  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']
-  return `${d} ${meses[+m - 1]} ${y}`
-}
+  var html = '<div class="venc-container">';
 
-export function restaurarCumplidos() {
-  const map = cargarEstados()
-  const hoyStr = hoy()
-  let changed = false
-  Object.keys(map).forEach(id => {
-    if (map[id] === 'cumplido') {
-      const v = VENCIMIENTOS_2026.find(x => x.id === id)
-      // Si el vencimiento ya pasó hace más de 60 días, limpiar
-      if (v && diasRestantes(v.fecha) < -60) { delete map[id]; changed = true }
-    }
-  })
-  if (changed) guardarEstados(map)
-}
+  // — Resumen KPIs —
+  html += '<div class="venc-kpis">';
+  html += _kpi(vencidos.length,  'Vencidos',       'venc-kpi-rojo',    '⚠');
+  html += _kpi(criticos.length,  'Críticos (≤3d)',  'venc-kpi-naranja', '⚡');
+  html += _kpi(urgentes.length,  'Próximos (≤10d)', 'venc-kpi-amarillo','·');
+  html += _kpi(proximos.length,  'Este mes',        'venc-kpi-verde',   '·');
+  html += '</div>';
 
-function buildCard(v) {
-  const dias = diasRestantes(v.fecha)
-  const urg  = v.estado === 'cumplido' ? 'ok' : urgencia(dias)
-  const cfg  = TIPO_COLOR[v.tipo] || TIPO_COLOR.IVA
-  const diasTxt = v.estado === 'cumplido'
-    ? '✓ Cumplido'
-    : dias < 0
-      ? `Venció hace ${Math.abs(dias)}d`
-      : dias === 0
-        ? '¡Hoy!'
-        : `${dias}d`
-
-  return `
-    <div class="venc-card venc-${urg}${v.estado === 'cumplido' ? ' venc-done' : ''}" data-id="${v.id}">
-      <div class="venc-badge" style="background:${cfg.accent}22;color:${cfg.accent}">${cfg.label}</div>
-      <div class="venc-nombre">${v.nombre}</div>
-      <div class="venc-fecha">${formatFecha(v.fecha)}</div>
-      <div class="venc-dias venc-dias-${urg}">${diasTxt}</div>
-      <button class="venc-btn-cumplir" data-id="${v.id}" title="${v.estado === 'cumplido' ? 'Desmarcar' : 'Marcar cumplido'}">
-        ${v.estado === 'cumplido' ? '↩' : '✓'}
-      </button>
-    </div>`
-}
-
-function buildResumen(lista) {
-  const vencidos = lista.filter(v => v.estado !== 'cumplido' && diasRestantes(v.fecha) < 0).length
-  const criticos = lista.filter(v => v.estado !== 'cumplido' && urgencia(diasRestantes(v.fecha)) === 'critico').length
-  const proximos = lista.filter(v => v.estado !== 'cumplido' && urgencia(diasRestantes(v.fecha)) === 'proximo').length
-  const cumplidos= lista.filter(v => v.estado === 'cumplido').length
-
-  return `
-    <div class="venc-resumen">
-      <div class="venc-stat venc-stat-vencido"><span>${vencidos}</span><small>Vencidos</small></div>
-      <div class="venc-stat venc-stat-critico"><span>${criticos}</span><small>Críticos (≤3d)</small></div>
-      <div class="venc-stat venc-stat-proximo"><span>${proximos}</span><small>Próximos (≤10d)</small></div>
-      <div class="venc-stat venc-stat-ok"><span>${cumplidos}</span><small>Cumplidos</small></div>
-    </div>`
-}
-
-export function renderVencimientos(container) {
-  restaurarCumplidos()
-  const lista = aplicarEstados(VENCIMIENTOS_2026)
-    .filter(v => diasRestantes(v.fecha) > -30 || v.estado === 'cumplido')
-    .sort((a, b) => a.fecha.localeCompare(b.fecha))
-
-  const tipos = ['Todos', ...Object.keys(TIPO_COLOR)]
-  let filtroActivo = 'Todos'
-
-  function render() {
-    const filtrada = filtroActivo === 'Todos'
-      ? lista
-      : lista.filter(v => v.tipo === filtroActivo)
-
-    container.innerHTML = `
-      <div class="venc-root">
-        <div class="venc-header">
-          <h2>Vencimientos ARCA 2026</h2>
-          <p class="venc-desc">Calendario fiscal · IVA · Ganancias · IIBB · Cargas Sociales</p>
-        </div>
-        ${buildResumen(lista)}
-        <div class="venc-filtros">
-          ${tipos.map(t => `<button class="venc-filtro${t === filtroActivo ? ' active' : ''}" data-tipo="${t}">${t === 'BienesPersonales' ? 'Bs. Personales' : t}</button>`).join('')}
-        </div>
-        <div class="venc-grid">
-          ${filtrada.length ? filtrada.map(buildCard).join('') : '<p class="venc-empty">Sin vencimientos en este período.</p>'}
-        </div>
-      </div>`
-
-    container.querySelectorAll('.venc-filtro').forEach(btn => {
-      btn.addEventListener('click', () => {
-        filtroActivo = btn.dataset.tipo
-        render()
-      })
-    })
-
-    container.querySelectorAll('.venc-btn-cumplir').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id  = btn.dataset.id
-        const map = cargarEstados()
-        const v   = lista.find(x => x.id === id)
-        if (!v) return
-        if (v.estado === 'cumplido') {
-          delete map[id]
-          v.estado = 'pendiente'
-        } else {
-          map[id] = 'cumplido'
-          v.estado = 'cumplido'
-        }
-        guardarEstados(map)
-        render()
-      })
-    })
+  // — Alerta banner si hay críticos/vencidos —
+  if (vencidos.length > 0 || criticos.length > 0) {
+    html += '<div class="venc-banner venc-banner-critico">';
+    html += '<span>⚠</span>';
+    html += '<span>' + (vencidos.length + criticos.length) + ' obligación/es requieren atención inmediata</span>';
+    html += '<button onclick="enviarAlertaEmail()" class="venc-btn-alerta">Enviar alerta por email</button>';
+    html += '</div>';
   }
 
-  render()
+  // — Filtros —
+  html += '<div class="venc-filtros">';
+  html += '<button class="venc-filtro active" data-tipo="todos" onclick="filtrarVenc(this)">Todos</button>';
+  Object.keys(TIPO_CONFIG).forEach(function(tipo) {
+    html += '<button class="venc-filtro" data-tipo="' + tipo + '" onclick="filtrarVenc(this)" style="color:' + TIPO_CONFIG[tipo].color + ';border-color:' + TIPO_CONFIG[tipo].color + '20">' + TIPO_CONFIG[tipo].label + '</button>';
+  });
+  html += '</div>';
+
+  // — Lista de vencimientos —
+  html += '<div class="venc-lista" id="venc-lista">';
+
+  if (visibles.length === 0) {
+    html += '<div class="venc-empty">No hay vencimientos en los próximos 90 días.</div>';
+  }
+
+  visibles.forEach(function(v) {
+    var dias = diasRestantes(v.fecha);
+    var cfg = TIPO_CONFIG[v.tipo] || { label: v.tipo, color: '#888', bg: '#f5f5f5' };
+    var cls = urgencyClass(dias);
+
+    html += '<div class="venc-item ' + cls + '" data-tipo="' + v.tipo + '">';
+    html += '  <div class="venc-item-fecha">';
+    html += '    <span class="venc-fecha-txt">' + formatFecha(v.fecha) + '</span>';
+    html += '    <span class="venc-dias ' + cls + '-text">' + urgencyLabel(dias) + '</span>';
+    html += '  </div>';
+    html += '  <div class="venc-item-body">';
+    html += '    <div class="venc-item-top">';
+    html += '      <span class="venc-badge" style="background:' + cfg.bg + ';color:' + cfg.color + '">' + cfg.label + '</span>';
+    html += '      <span class="venc-nombre">' + v.nombre + '</span>';
+    html += '    </div>';
+    html += '    <p class="venc-desc">' + v.descripcion + '</p>';
+    html += '  </div>';
+    html += '  <div class="venc-item-actions">';
+    html += '    <button class="venc-btn-check" onclick="marcarCumplido(\'' + v.id + '\', this)" title="Marcar como cumplido">✓</button>';
+    html += '    <a href="' + v.url + '" target="_blank" class="venc-btn-link" title="Ir a ARCA">↗</a>';
+    html += '  </div>';
+    html += '</div>';
+  });
+
+  html += '</div>'; // venc-lista
+  html += '</div>'; // venc-container
+
+  return html;
+}
+
+function _kpi(num, label, cls, icon) {
+  return '<div class="venc-kpi ' + cls + '"><div class="venc-kpi-num">' + num + '</div><div class="venc-kpi-label">' + label + '</div></div>';
+}
+
+// ─── Acciones globales (window) ───────────────────────────────────────────────
+window.filtrarVenc = function(btn) {
+  var tipo = btn.dataset.tipo;
+  document.querySelectorAll('.venc-filtro').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.venc-item').forEach(function(item) {
+    if (tipo === 'todos' || item.dataset.tipo === tipo) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+};
+
+window.marcarCumplido = function(id, btn) {
+  var item = btn.closest('.venc-item');
+  item.classList.add('venc-cumplido');
+  btn.textContent = '✓';
+  btn.disabled = true;
+  // Persistir en localStorage
+  var cumplidos = JSON.parse(localStorage.getItem('venc_cumplidos') || '[]');
+  if (!cumplidos.includes(id)) { cumplidos.push(id); }
+  localStorage.setItem('venc_cumplidos', JSON.stringify(cumplidos));
+};
+
+window.enviarAlertaEmail = function() {
+  // Llama a /api/vencimientos-alerta — ver vencimientos-api.js
+  fetch('/api/vencimientos-alerta', { method: 'POST' })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      alert('Alerta enviada a ' + (data.email || 'tu email registrado'));
+    })
+    .catch(function() {
+      alert('Error al enviar la alerta. Verificá la conexión.');
+    });
+};
+
+// Restaurar cumplidos al cargar
+export function restaurarCumplidos() {
+  var cumplidos = JSON.parse(localStorage.getItem('venc_cumplidos') || '[]');
+  cumplidos.forEach(function(id) {
+    var items = document.querySelectorAll('.venc-item');
+    items.forEach(function(item) {
+      var btn = item.querySelector('.venc-btn-check');
+      if (btn && btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(id)) {
+        item.classList.add('venc-cumplido');
+        btn.textContent = '✓';
+        btn.disabled = true;
+      }
+    });
+  });
 }
