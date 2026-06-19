@@ -2,12 +2,16 @@
   "cleanUrls": true,
   "crons": [
     {
-      "path": "/api/vencimientos-alerta",
+      "path": "/api/ops?action=venc-alerta",
       "schedule": "0 11 * * *"
     },
     {
-      "path": "/api/keepalive",
+      "path": "/api/ops?action=keepalive",
       "schedule": "0 12 */3 * *"
+    },
+    {
+      "path": "/api/arca?action=cron",
+      "schedule": "0 3 * * *"
     }
   ]
 }
