@@ -114,7 +114,7 @@ export function renderCompras(container) {
     spinStyle()
     ci('#cc-icon').innerHTML = '<span style="display:inline-block;width:12px;height:12px;border:2px solid var(--border);border-top-color:#6c5ce7;border-radius:50%;animation:cspin .7s linear infinite"></span>'
     try {
-      var r = await fetch('/api/arca-padron?cuit=' + cuit)
+      var r = await fetch('/api/arca?action=padron&cuit=' + cuit)
       var d = await r.json()
       if (d.error || d.errorConstancia) throw new Error('no encontrado')
       razonSocial = (d.datosGenerales && (d.datosGenerales.razonSocial || d.datosGenerales.nombre)) || ''
