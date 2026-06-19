@@ -192,9 +192,9 @@ export function renderCumplimiento(container) {
 
   async function cargarF931(p) {
     try {
-      var re = await fetch('/api/sueldos?action=empleados', { headers: getHeaders() })
+      var re = await fetch('/api/ops?action=empleados', { headers: getHeaders() })
       var empleados = re.ok ? await re.json() : []
-      var rl = await fetch('/api/sueldos?action=liquidar&periodo=' + p, { headers: getHeaders() })
+      var rl = await fetch('/api/ops?action=liquidar&periodo=' + p, { headers: getHeaders() })
       var liqs = rl.ok ? (await rl.json()).liquidaciones || [] : []
       var aportes  = liqs.reduce(function(s, l) { return s + (l.jubilacion||0) + (l.obra_social||0) + (l.pami||0) }, 0)
       var contribs = liqs.reduce(function(s, l) { return s + Math.round((l.salario_bruto||0) * 0.231 * 100) / 100 }, 0)
@@ -237,7 +237,7 @@ export function renderCumplimiento(container) {
 
   async function cargarHistorial() {
     try {
-      var r = await fetch('/api/sueldos?action=cronlog', { headers: getHeaders() })
+      var r = await fetch('/api/ops?action=cronlog', { headers: getHeaders() })
       if (!r.ok) throw new Error()
       var logs = await r.json()
       if (!logs.length) {
