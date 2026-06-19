@@ -43,7 +43,7 @@ export function renderFFMercadoPago(el) {
       btn.disabled = true; btn.textContent = 'Importando...'
       st.innerHTML=`<div style="font-size:12px;color:var(--blue)">Conectando con MercadoPago...</div>`
       try {
-        const resp = await fetch('/api/mercadopago', {
+        const resp = await fetch('/api/core?action=mp', {
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({token})
         })
