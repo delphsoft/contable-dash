@@ -1,17 +1,13 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "functions": {
-    "api/arca-cron.js":           { "maxDuration": 60 },
-    "api/arca-sync.js":           { "maxDuration": 60 },
-    "api/vencimientos-alerta.js": { "maxDuration": 30 }
-  },
+  "cleanUrls": true,
   "crons": [
-    { "path": "/api/arca-cron",           "schedule": "0 6 * * *" },
-    { "path": "/api/vencimientos-alerta", "schedule": "0 8 * * *" }
+    {
+      "path": "/api/vencimientos-alerta",
+      "schedule": "0 11 * * *"
+    },
+    {
+      "path": "/api/keepalive",
+      "schedule": "0 12 */3 * *"
+    }
   ]
 }
