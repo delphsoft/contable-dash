@@ -66,7 +66,7 @@ export function renderCron(container) {
     const btn = ci('#cr-sync')
     btn.disabled = true; btn.textContent = 'Sincronizando...'
     try {
-      const r = await fetch('/api/arca-sync', {
+      const r = await fetch('/api/arca?action=sync', {
         method: 'POST', headers: getHeaders(),
         body: JSON.stringify({ periodo: ci('#cr-per').value || getPeriodo() })
       })
@@ -82,7 +82,7 @@ export function renderCron(container) {
 
   async function cargarLog() {
     try {
-      const r = await fetch('/api/sueldos?action=cronlog', { headers: getHeaders() })
+      const r = await fetch('/api/ops?action=cronlog', { headers: getHeaders() })
       if (!r.ok) throw new Error()
       renderLog(await r.json())
     } catch { renderLog([]) }
