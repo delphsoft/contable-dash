@@ -152,7 +152,7 @@ export function renderSueldos(container) {
     const btn = ci('#sue-liq')
     btn.disabled = true; btn.textContent = 'Procesando...'
     try {
-      const r = await fetch('/api/sueldos?action=liquidar', {
+      const r = await fetch('/api/ops?action=liquidar', {
         method: 'POST', headers: getHeaders(),
         body: JSON.stringify({ periodo: ci('#sue-per').value })
       })
@@ -165,7 +165,7 @@ export function renderSueldos(container) {
 
   async function cargar() {
     try {
-      const r = await fetch('/api/sueldos?action=empleados', { headers: getHeaders() })
+      const r = await fetch('/api/ops?action=empleados', { headers: getHeaders() })
       if (r.ok) empleados = await r.json()
     } catch { /* sin conexión */ }
     renderTab()
