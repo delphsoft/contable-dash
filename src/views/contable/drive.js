@@ -94,7 +94,7 @@ export function renderDrive(el) {
       btn.disabled=true; btn.textContent='Sincronizando...'
       st.innerHTML=`<span style="color:var(--blue)">Conectando con Google Drive...</span>`
       try {
-        const resp = await fetch('/api/drive', {
+        const resp = await fetch('/api/core?action=drive', {
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({fileId})
         })
@@ -138,7 +138,7 @@ export function renderDrive(el) {
       reader.onload = async e => {
         const base64 = btoa(String.fromCharCode(...new Uint8Array(e.target.result)))
         try {
-          const resp = await fetch('/api/parse-xlsx', {
+          const resp = await fetch('/api/core?action=parse-xlsx', {
             method:'POST', headers:{'Content-Type':'application/json'},
             body: JSON.stringify({base64, name:file.name})
           })
