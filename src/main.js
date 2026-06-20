@@ -22,7 +22,8 @@ const VIEWS = {
   'ct-drive':       { render: renderDrive,          title:'Google Drive',     sub:'Sincronizar datos desde .xlsx',              action:null, prompt:null,   showPeriod:false },
   'ct-fiscal':      { render: renderFiscal,         title:'Fiscal',           sub:'IVA · Compras · Sueldos · Impuestos · Sync', action:null, prompt:null,   showPeriod:false },
   'ff-facturacion': { render: renderFacturacion,    title:'Facturación',      sub:'Facturas ARCA · MercadoPago',                action:null, prompt:null,   showPeriod:false },
-  'ct-vencimientos':{ render: renderVencimientos,   title:'Vencimientos',     sub:'Calendario fiscal ARCA 2026',               action:null, prompt:null,   showPeriod:false },
+ 'ct-vencimientos':{ render: renderVencimientos,   title:'Vencimientos',     sub:'Calendario fiscal ARCA 2026',               action:null, prompt:null,   showPeriod:false },
+  'ct-diagnostico': { render: renderDiagnostico, title:'Diagnóstico IA', sub:'Análisis fiscal y estratégico · powered by Claude', action:null, prompt:null, showPeriod:false },
   'ct-superadmin':  { render: renderSuperAdmin,     title:'Super Admin',      sub:'Panel estratégico — acceso restringido',     action:null, prompt:null,   showPeriod:false, nomemo:true },
 }
 
