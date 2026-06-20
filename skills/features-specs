@@ -1,0 +1,519 @@
+# DashBI — Features Spec: Inteligencia Estratégica
+**Versión:** 1.0  
+**Fecha:** Junio 2026  
+**Autor:** delphsoft / PymeStudio  
+**Repo:** delphsoft/contable-dash  
+**Producto:** dashbi.pymestudio.xyz
+
+---
+
+## 1. Visión y posicionamiento
+
+### 1.1 Problema que resuelve
+
+Las PyMEs argentinas tienen tres opciones hoy:
+
+| Opción | Problema |
+|---|---|
+| Contador tradicional | Caro, reactivo, sin visibilidad en tiempo real |
+| Software contable (Tango, Bejerman) | Operativo pero sin análisis ni asesoría |
+| Consultoras internacionales (Big 4) | Inaccesibles para PyMEs en precio y lenguaje |
+
+**DashBI cierra ese gap:** compliance operativo + diagnóstico estratégico + asesoría IA — al precio de un SaaS PyME.
+
+### 1.2 Narrative diferenciador
+
+> *"PymeStudio es el primer sistema de compliance inteligente para PyMEs argentinas. Te avisa antes de los vencimientos, valida tus proveedores en ARCA automáticamente, detecta riesgos fiscales, y cuando necesitás un contador, ya tiene todo el contexto de tu empresa cargado."*
+
+### 1.3 Propuesta de valor por actor
+
+**Para el contador (Juan):**
+- Asistente de trabajo que conoce la normativa ARCA 2026
+- Diagnóstico inicial de clientes en 2 minutos en lugar de 2 horas
+- Informes listos para entregar sin trabajo manual
+- Acceso a datos reales del cliente vía Supabase
+
+**Para el cliente PyME:**
+- Diagnóstico fiscal y estratégico que antes costaba USD 5.000
+- Alertas proactivas antes de vencimientos y problemas
+- Lenguaje claro sin jerga contable innecesaria
+- Acceso desde cualquier dispositivo
+
+---
+
+## 2. Arquitectura del módulo de inteligencia estratégica
+
+### 2.1 Stack técnico
+
+```
+Frontend:   Vite + Vanilla JS + CSS custom (sin frameworks)
+Backend:    Vercel Serverless Functions (Node.js 18)
+IA:         Anthropic Claude Sonnet 4.6 via API
+Base datos: Supabase (PostgreSQL + Auth)
+Deploy:     Vercel (Hobby plan, optimizado para límite de functions)
+RAG:        pymes-rag en Railway (FastAPI, pendiente conectar)
+```
+
+### 2.2 Constraint crítico de código
+
+**Vite/esbuild NO tolera template literals anidados** en archivos `src/`.  
+Regla: usar concatenación de strings (`+`) en lugar de `${}` dentro de otro `${}`.
+
+```js
+// ❌ ROMPE el build
+const html = `<div>${items.map(i => `<span>${i}</span>`).join('')}</div>`
+
+// ✅ CORRECTO
+const html = '<div>' + items.map(function(i){ return '<span>' + i + '</span>' }).join('') + '</div>'
+```
+
+### 2.3 Flujo de datos del diagnóstico
+
+```
+Usuario escribe contexto libre
+        ↓
+Frontend (diagnostico.js) — validación mínima
+        ↓
+POST /api/diagnostico — Vercel Function
+        ↓
+Prompt engineering → Claude Sonnet 4.6
+        ↓
+JSON estructurado (score + 5 dimensiones + recomendaciones)
+        ↓
+Frontend renderiza resultado
+        ↓
+[futuro] Guardar en Supabase tabla diagnosticos
+```
+
+---
+
+## 3. Módulo de diagnóstico IA — spec completo
+
+### 3.1 Descripción
+
+Onboarding inteligente que analiza el estado de una empresa PyME argentina en texto libre y devuelve un diagnóstico estructurado en 5 dimensiones con score de salud, alertas críticas y recomendaciones priorizadas.
+
+**Filosofía de diseño:** caja de texto libre > formulario de preguntas. Reducir fricción al máximo. El modo guiado con preguntas existe pero es secundario.
+
+### 3.2 Archivos del módulo
+
+```
+src/diagnostico.js      — módulo frontend (render + eventos + fetch)
+src/diagnostico.css     — estilos del módulo
+api/diagnostico.js      — serverless function (Claude API)
+```
+
+### 3.3 Pantallas / estados
+
+#### Estado 1: Input
+- Guía de 8 ítems (qué incluir) — visible pero no obligatoria
+- Textarea libre (min 20 chars para habilitar análisis)
+- Upload de archivos: `.pdf`, `.xlsx`, `.xls`, `.csv` — nombres enviados como contexto a Claude
+- Link "Modo guiado con preguntas" — opcional
+- Botón "✦ Analizar empresa"
+
+#### Estado 2: Thinking
+- 6 mensajes secuenciales cada 900ms mientras Claude procesa
+- "Analizando régimen impositivo y ARCA…"
+- "Evaluando situación laboral y cargas sociales…"
+- "Revisando estructura societaria y riesgo patrimonial…"
+- "Analizando flujo de caja y posición financiera…"
+- "Detectando incentivos fiscales disponibles…"
+- "Calculando score y priorizando recomendaciones…"
+
+#### Estado 3: Resultado
+- Chips de contexto detectado (actividad, régimen, empleados, archivos)
+- Alertas críticas en banner rojo (si las hay) — aparecen PRIMERO
+- Score numérico 0-100 con barra de color (verde/naranja/rojo)
+- Descripción del score en una frase
+- Métricas calculadas (hasta 6): facturación, margen bruto, IVA estimado, etc.
+- Semáforo por dimensión (5 cards) con nota específica y tags
+- Recomendaciones priorizadas por urgencia
+- 5 botones de acción → asesor IA, informe PDF, Mono vs RI, incentivos, posición IVA
+
+### 3.4 Las 5 dimensiones del diagnóstico
+
+#### Dimensión 1: Fiscal / impositiva
+**Detecta:**
+- Régimen: Monotributo (categoría), Responsable Inscripto, no identificado
+- Deuda en ARCA / plan de facilidades / falta de presentaciones
+- Proveedores sin validar en padrón (pérdida de crédito fiscal IVA)
+- Categoría MT alta → riesgo de exclusión automática
+- Solo factura B siendo RI → pérdida de negociación B2B
+- IIBB / Convenio Multilateral
+- Retenciones SICORE/SIRCREB → saldo a favor bloqueado
+- Anticipos Ganancias sobreestimados
+- Operación en USD → obligaciones BCRA + AFIP
+
+**Riesgo 0-4:**
+- 0: Sin observaciones
+- 1: Atención (algún ítem a revisar)
+- 2: Riesgo moderado
+- 3-4: Riesgo alto (deuda + falta de presentaciones)
+
+#### Dimensión 2: Laboral / cargas sociales
+**Detecta:**
+- Personal no registrado ("en negro") → riesgo legal crítico
+- Sin ART → exposición ante accidente laboral
+- Monotributistas contratados → riesgo de dependencia encubierta
+- SAC no provisionado mensualmente
+- Más de 10 empleados → CCT del sector
+- Cantidad de empleados → carga laboral como % de facturación
+
+#### Dimensión 3: Societaria
+**Detecta:**
+- Sociedad de hecho → patrimonio personal expuesto
+- Sociedad de hecho + antigüedad >5 años → riesgo crítico
+- Sociedad de hecho + múltiples socios → máximo riesgo
+- Persona física + quiere crecer + socios → evaluar SAS
+- Empresa familiar sin protocolo → riesgo ante conflictos
+- Franquicia → estructura legal específica
+- Objetivo de venta → due diligence societario previo
+
+#### Dimensión 4: Financiera
+**Detecta:**
+- Caja ajustada / problema de liquidez
+- Cheques rechazados → inhabilitación bancaria
+- Ciclo de cobro largo (30/60/90 días) + caja ajustada → capital de trabajo
+- Crédito fiscal no recuperado por proveedores sin validar
+- Exposición cambiaria en USD sin cobertura
+- Stock / inventario → capital inmovilizado
+- Calcula: margen bruto estimado, IVA débito anual, carga laboral %
+
+#### Dimensión 5: Estratégica
+**Detecta:**
+- Objetivo: crecer / abrir local → planificar estructura antes
+- Objetivo: exportar → Exporta Simple, RIGI
+- Objetivo: vender empresa → due diligence fiscal previo crítico
+- Objetivo: ordenarse → DashBI cubre todo
+- Opera en Mercado Libre/e-commerce → percepciones ARCA/IIBB recuperables
+- Agro + Córdoba → CTG/CPE + AgroGestión disponible en PymeStudio
+- No conoce incentivos → Decreto 242/2026, RIGI, PIMI disponibles
+
+### 3.5 Sistema de scoring
+
+```
+Score = 100 - (suma_riesgos / 20 * 100)
+
+Riesgo por dimensión: 0 a 4 (cap en 4)
+Riesgo máximo total: 20
+Riesgo mínimo total: 0
+
+Score ≥ 80 → Verde  → "Empresa bien ordenada — foco en optimización"
+Score 60-79 → Naranja → "Situación manejable con alertas puntuales"
+Score 40-59 → Naranja → "Riesgos relevantes que requieren atención"
+Score < 40  → Rojo   → "Situación crítica — accionar esta semana"
+
+Mínimo absoluto: 15 (nunca muestra 0)
+```
+
+### 3.6 Sistema de recomendaciones
+
+Prioridades en orden:
+1. **`ur` — Esta semana / Urgente:** riesgo legal o financiero inmediato
+2. **`me` — Este mes / Antes de expandir:** optimizaciones importantes
+3. **`ok` — Oportunidad / Verificar:** mejoras y beneficios disponibles
+
+Reglas de priorización:
+- Personal en negro → siempre primera recomendación urgente
+- Sin ART + empleados → urgente
+- Cheques rechazados → urgente
+- Deuda ARCA → urgente
+- Falta de presentaciones → urgente
+- Todo lo demás → medio u oportunidad según impacto
+
+### 3.7 API endpoint
+
+```
+POST /api/diagnostico
+Content-Type: application/json
+
+Body:
+{
+  "contexto": "string (min 20 chars) — descripción libre de la empresa",
+  "archivos": ["string"] — nombres de archivos adjuntos (opcional)
+}
+
+Response 200:
+{
+  "ok": true,
+  "diagnostico": {
+    "empresa": "string",
+    "actividad": "string",
+    "regimen": "string",
+    "score": number,
+    "score_descripcion": "string",
+    "alertas_criticas": [{ "texto": "string" }],
+    "metricas": [{ "label": "string", "valor": "string", "sub": "string" }],
+    "dimensiones": [{
+      "id": "fiscal|laboral|societaria|financiera|estrategica",
+      "nombre": "string",
+      "riesgo": 0-4,
+      "nota": "string",
+      "tags": ["string"]
+    }],
+    "recomendaciones": [{
+      "urgencia": "ur|me|ok",
+      "tag": "string",
+      "texto": "string"
+    }]
+  }
+}
+
+Response 400: { "error": "Contexto insuficiente" }
+Response 500: { "error": "API key no configurada" }
+Response 502: { "error": "Error al consultar IA", "detalle": "string" }
+```
+
+**Modelo:** `claude-sonnet-4-6`  
+**Max tokens:** 1500  
+**Latencia típica:** 3-6 segundos  
+**Costo por diagnóstico:** ~$0.002 USD
+
+---
+
+## 4. Skill dashbi-contador
+
+### 4.1 Descripción
+
+Skill de conocimiento especializado que convierte a Claude en un contador público argentino senior con acceso a datos reales de Supabase. Se activa cuando el usuario menciona cualquier tema fiscal/contable argentino.
+
+### 4.2 Archivos
+
+```
+skills/dashbi-contador/
+├── SKILL.md                    — instrucciones + trigger phrases
+└── references/
+    ├── supabase-schema.md      — tablas + queries SQL tipo
+    ├── consultas-tipo.md       — 7 patrones JS (IVA, F931, CCMA...)
+    ├── sueldos-2026.md         — alícuotas, F931, SAC, liquidación final
+    ├── mono-vs-ri.md           — análisis comparativo + fórmula + checklist
+    └── vencimientos-2026.md    — calendario 32 obligaciones ARCA 2026
+```
+
+### 4.3 Trigger phrases (cuándo se activa)
+
+El skill se activa cuando el usuario menciona:
+- Régimen impositivo: IVA, Monotributo, RI, Ganancias, IIBB
+- Obligaciones: F931, SICOSS, SICORE, vencimientos, VEP, CAE
+- Entidades: ARCA, AFIP, padrón, CCMA, AfipSDK
+- Módulos DashBI: contable-dash, PymeStudio, DashBI
+- Análisis: diagnóstico contable, due diligence, posición fiscal
+- Estrategia: Monotributo vs RI, RIGI, SAS, PIMI, Exporta Simple
+
+### 4.4 Doble modo de operación
+
+**Modo contador (para Juan):**
+- Lenguaje técnico, referencias a RG específicas
+- Queries Supabase directas
+- Preparación de informes
+- Análisis de posición IVA, F931, retenciones
+
+**Modo cliente PyME:**
+- Sin jerga innecesaria
+- Montos siempre en pesos con separador de miles
+- Foco en decisiones concretas, no en normativa abstracta
+- Derivación a módulos DashBI correspondientes
+
+---
+
+## 5. Frameworks de consultoría integrados
+
+### 5.1 McKinsey — MECE para diagnóstico fiscal
+
+**Mutually Exclusive, Collectively Exhaustive** aplicado:
+- Las 5 dimensiones no se superponen (MECE)
+- Cubren todo el espacio de riesgo PyME argentino
+- Cada hallazgo va a exactamente una dimensión
+
+**Árbol de problemas:** para detectar causa raíz de deuda ARCA:
+```
+Deuda ARCA
+├── No presentó → multa formal
+│   ├── No tiene contador
+│   └── Falta de seguimiento
+├── Presentó pero no pagó → interés punitorio
+│   ├── Caja ajustada
+│   └── No conoce plan de facilidades
+└── Error en declaración → diferencia + interés
+    ├── Proveedor no validado (crédito fiscal rechazado)
+    └── Categoría MT incorrecta
+```
+
+### 5.2 BCG — Matriz de priorización
+
+Adaptación para recomendaciones PyME:
+
+| | Alto impacto | Bajo impacto |
+|---|---|---|
+| **Urgente** | Accionar esta semana (ur) | Verificar |
+| **No urgente** | Este mes (me) | Oportunidad (ok) |
+
+### 5.3 Big 4 — Due diligence fiscal
+
+Checklist de due diligence adaptado para PyMEs (pre-venta o pre-inversión):
+1. Historial de presentaciones ARCA (últimos 3 años)
+2. Deuda fiscal consolidada (CCMA)
+3. Nómina laboral vs cargas sociales declaradas
+4. Estructura societaria y exposición patrimonial
+5. Proveedores estratégicos validados en padrón
+6. Contingencias (juicios, intimaciones, embargos)
+
+### 5.4 Doola / Stripe Atlas — Onboarding de compliance
+
+Principios de diseño aplicados al flujo de diagnóstico:
+- Fricción mínima en el input (texto libre > formulario)
+- Feedback inmediato con mensajes progresivos
+- Resultado accionable en < 10 segundos
+- Cada recomendación tiene un "siguiente paso" claro
+
+---
+
+## 6. Detección de señales — motor de análisis
+
+### 6.1 Señales de texto detectadas (40+)
+
+#### Régimen
+| Señal | Detección |
+|---|---|
+| "responsable inscripto", " ri ", "iva y ganancias" | `esRI = true` |
+| "monotributo", "montri" | `esMT = true` |
+| "categoría [A-K]" | `mtCat = letra` |
+
+#### Fiscal
+| Señal | Riesgo |
+|---|---|
+| "deuda", "mora", "plan de facilidades" | +3 fiscal |
+| "no presenté", "no declaré" | +2 fiscal |
+| "no valido proveedores", "nunca revisé" | +1 fiscal |
+| "solo factura B" siendo RI | +1 fiscal |
+| "dólar", "usd", "tipo de cambio" | flag cambiario |
+
+#### Laboral
+| Señal | Riesgo |
+|---|---|
+| "negro", "no registrado", "pago en b" | +4 laboral (crítico) |
+| "no tengo ART", "sin ART" | +2 laboral |
+| "monotributista" + "contrat" | +1 laboral (encubierto) |
+
+#### Societario
+| Señal | Riesgo |
+|---|---|
+| "sociedad de hecho" + antigüedad >5 años | +3 societario |
+| "sociedad de hecho" | +2 societario |
+| "SAS" | 0 societario |
+| persona física + quiere crecer + socios | +1 societario |
+
+#### Financiero
+| Señal | Riesgo |
+|---|---|
+| "cheque rechazado", "rebote" | +2 financiero |
+| "caja ajustada", "no llego" | +2 financiero |
+| "cobro a 30/60/90 días" | +1 financiero |
+| proveedores sin validar siendo RI | +1 financiero |
+
+#### Extracción de montos
+```js
+// Detecta: "$45 millones", "$28M", "$800k"
+var ns = raw.match(/\$\s*([\d.,]+)\s*(m(?:illones?)?|k|mil)?/gi)
+// Calcula: margen = 1 - (costos/ventas)
+// Calcula: IVA débito = ventas * 0.21
+// Calcula: carga laboral = (empleados * salario * 12) / ventas
+```
+
+#### Cruce de señales (lógica avanzada)
+| Combinación | Acción |
+|---|---|
+| Agro + Córdoba | Sugerir AgroGestión / CTG-CPE |
+| MercadoLibre/e-commerce + RI | Alerta percepciones recuperables |
+| Quiere exportar + no conoce incentivos | Exporta Simple como urgente |
+| Quiere vender + sociedad de hecho | Due diligence como urgente |
+| Cobro tarde + caja ajustada | Doble penalización financiera |
+| Empleados + sin sociedad + quiere crecer | SAS antes de expandir |
+
+---
+
+## 7. Integración con el ecosistema PymeStudio
+
+### 7.1 Módulos DashBI conectados al diagnóstico
+
+| Recomendación del diagnóstico | Módulo DashBI |
+|---|---|
+| Validar proveedores en ARCA | ct-fiscal → Compras → Padrón |
+| Revisar posición IVA | ct-fiscal → IVA Ventas/Compras |
+| Vencimientos próximos | ct-vencimientos |
+| Calcular F931 | ct-fiscal → Sueldos |
+| Consultar deuda CCMA | ct-fiscal → CCMA |
+| Generar VEP | ct-fiscal → VEP links |
+
+### 7.2 Derivaciones a otros productos PymeStudio
+
+| Situación detectada | Producto |
+|---|---|
+| Incentivos fiscales desconocidos | PymeRIMI (pymerimi.vercel.app) |
+| Agro + CTG/CPE + Córdoba | AgroGestión (harvest.pymestudio.xyz) |
+| Servicios agropecuarios | PampaGo (pampago.xyz) |
+| Facturación electrónica CAE | FacturaFácil |
+
+---
+
+## 8. Roadmap de mejoras
+
+### v1.1 — Persistencia (próximo sprint)
+- [ ] Guardar diagnóstico en `supabase.diagnosticos` con fecha + user_id
+- [ ] Ver historial de diagnósticos anteriores
+- [ ] Comparar evolución del score en el tiempo
+
+### v1.2 — Informes PDF
+- [ ] Generar PDF con `@react-pdf/renderer` o `jsPDF`
+- [ ] Template profesional con logo PymeStudio
+- [ ] "Preparado por [nombre contador] vía DashBI"
+- [ ] Exportar y enviar por email al cliente
+
+### v1.3 — Integración datos reales Supabase
+- [ ] Pre-cargar datos de facturas/compras del período actual
+- [ ] Calcular posición IVA real (no estimada)
+- [ ] Detectar proveedores no validados automáticamente
+- [ ] Score basado en datos reales + contexto de texto
+
+### v1.4 — RAG tributario
+- [ ] Conectar pymes-rag (Railway) al asesor IA
+- [ ] 15 chunks de normativa argentina seeded
+- [ ] Respuestas citando RG específicas con número
+
+### v1.5 — Modo contador avanzado
+- [ ] Diagnóstico multi-cliente (seleccionar CUIT)
+- [ ] Batch de diagnósticos para cartera de clientes
+- [ ] Dashboard de salud de cartera (score promedio, distribución)
+- [ ] Alertas automáticas cuando un cliente baja su score
+
+### v2.0 — Agentic compliance
+- [ ] Claude actúa directamente: valida proveedores, actualiza vencimientos
+- [ ] Notificaciones proactivas vía Resend cuando detecta riesgo
+- [ ] Integración CCMA → alerta automática si aparece deuda nueva
+
+---
+
+## 9. Variables de entorno requeridas
+
+```bash
+# Vercel — proyecto contable-dash
+ANTHROPIC_API_KEY=sk-ant-...          # Claude API (diagnóstico IA)
+VITE_SUPABASE_URL=https://...         # Supabase proyecto
+VITE_SUPABASE_ANON_KEY=eyJ...         # Supabase anon key
+AFIPSDK_TOKEN=...                     # AfipSDK (ARCA integración)
+AFIPSDK_ENV=prod                      # NUNCA "production" — solo "prod"
+RESEND_API_KEY=re_...                 # Emails de alerta vencimientos
+```
+
+---
+
+## 10. Principios de diseño del sistema
+
+1. **Texto libre > formularios** — menos fricción, más adopción
+2. **Datos reales > estimaciones** — cuando hay datos en Supabase, usarlos
+3. **Accionable > informativo** — cada recomendación tiene un siguiente paso claro
+4. **Local > genérico** — normativa ARCA 2026 específica, no consejos globales
+5. **Proactivo > reactivo** — alertar antes del vencimiento, no después del problema
+6. **Contador + IA** — la IA amplifica al contador, no lo reemplaza
+7. **Sin template literals anidados** — constraint Vite/esbuild, siempre concatenación
