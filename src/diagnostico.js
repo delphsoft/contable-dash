@@ -180,7 +180,7 @@ async function diagAnalizar() {
   try {
     var archivosNombres = _diagFiles.map(function(f) { return f.name })
 
-    var resp = await fetch('/api/core?action=diagnostico', {
+    var resp = await fetch('/api/diagnostico', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

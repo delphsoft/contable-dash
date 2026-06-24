@@ -287,3 +287,126 @@ Semana 6: Cool-down (fix bugs, documentar, no agregar features)
 - Export PDF: 1 semana
 - Historial y comparación: 2 semanas
 - Integración datos reales: 3 semanas
+
+---
+
+## 11. Overnight Strategist — El Contraste como herramienta de narrativa estratégica
+**Fuente:** @overnightstrategist — "Use Contrast in Your Strategy Story"
+
+### El principio central
+El contraste es una de las herramientas más subutilizadas en estrategia.
+No es solo una forma visual — es una herramienta de pensamiento.
+
+Cuando ponés dos realidades lado a lado, forzás a tu audiencia a confrontar
+el gap entre ellas. Ese gap es donde el insight estratégico se revela.
+El contraste no describe el problema — lo hace sentir.
+
+> "Strategists must build arguments using tension.
+> They show the gap and then offer the bridge to close it."
+
+### Los 4 tipos de contraste (aplicados a PyMEs argentinas)
+
+#### 1. Old way vs New way
+El contraste más simple. Muestra cómo se hacía antes vs cómo se hace ahora.
+
+```
+OLD WAY                          NEW WAY
+El contador presenta los         DashBI muestra el score en
+números en Excel y espera        tiempo real y el cliente ve
+que el cliente entienda.         el semáforo antes de la reunión.
+
+El cliente llama cuando ya       DashBI alerta 7 días antes
+tiene la multa encima.           del vencimiento.
+```
+
+#### 2. What we believe vs What customers actually do
+Expone el gap entre supuestos internos y realidad del mercado.
+
+```
+LO QUE CREEMOS                   LO QUE HACE EL CLIENTE
+"El cliente quiere un            El cliente ignora el informe
+informe contable detallado."     y pregunta '¿tengo que pagar?'
+
+"El cliente valora la            El cliente decide con el precio
+profundidad del análisis."       y la velocidad de respuesta.
+```
+
+**Implicancia para DashBI:** el semáforo y el score son más efectivos
+que 10 páginas de análisis. El cliente quiere saber si está bien o mal,
+no leer los fundamentos.
+
+#### 3. What we say matters vs What we reward
+Detecta inconsistencias entre discurso y comportamiento real.
+
+```
+LO QUE DICE LA PYMÉ              LO QUE REALMENTE HACE
+"Queremos crecer                 Nunca invirtió en ordenar
+ordenadamente."                  el compliance básico.
+
+"El equipo es lo más             Tiene 2 empleados en negro
+importante."                     para bajar costos.
+```
+
+**Uso en diagnóstico:** cuando el cliente declara un objetivo (crecer,
+exportar, vender) pero su comportamiento contradice ese objetivo,
+el contraste lo hace visible sin confrontar directamente.
+
+#### 4. What we are doing vs What the market needs
+El más estratégico. Alinea la oferta con la demanda real.
+
+```
+LO QUE HACE EL CONTADOR          LO QUE NECESITA LA PYMÉ
+Presenta balances anuales.       Necesita alertas semanales.
+Trabaja en el pasado.            Necesita anticipar el futuro.
+Cobra por hora de trabajo.       Quiere pagar por resultado.
+```
+
+**Implicancia para PymeStudio:** el mercado de PyMEs no quiere
+más software contable — quiere tranquilidad. DashBI vende tranquilidad,
+no features.
+
+---
+
+### Cómo usar el contraste en el informe DashBI para el cliente
+
+**Estructura de una slide / sección de contraste:**
+```
+[ESTADO ACTUAL - fondo rosa suave]
+"Hoy: 3 proveedores principales sin validar en ARCA.
+Crédito fiscal IVA perdido: $180.000/mes."
+
+        ↕  VS  ↕
+
+[ESTADO OBJETIVO - fondo verde suave]
+"En 30 días con DashBI: validación automática activada.
+Crédito fiscal recuperado: $2.1M/año."
+```
+
+El gap ($2.1M/año) es la tensión. La tensión motiva la acción.
+
+### Reglas del contraste efectivo
+
+1. **Usar números reales** — el contraste abstracto no impacta,
+   el contraste con pesos reales del cliente sí
+2. **Mismo nivel de abstracción** en ambos lados — no comparar
+   un concepto con un número concreto
+3. **La misma dimensión** — comparar costos con costos,
+   tiempo con tiempo, riesgo con riesgo
+4. **El contraste revela, no condena** — no es "estás mal",
+   es "mirá la diferencia que podemos lograr"
+5. **Siempre ofrecer el puente** — el contraste sin solución
+   crea ansiedad sin dirección
+
+### Aplicación en el diagnóstico DashBI
+
+El semáforo del diagnóstico ES un contraste visual:
+- Rojo (estado actual problemático) vs Verde (estado objetivo)
+- El score 42 vs el score 74 posible
+- "Perdés $X" vs "Podés recuperar $X"
+
+Cuando el asesor IA genera recomendaciones, cada una debe
+estructurarse como un contraste:
+```
+SIN implementar esto:  [consecuencia negativa con número]
+CON esta acción:       [beneficio concreto con número y timeline]
+```
