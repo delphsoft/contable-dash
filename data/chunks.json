@@ -1,0 +1,659 @@
+[
+  {
+    "chunk_id": "v1-001",
+    "source_name": "Monotributo 2026 — categorías y límites",
+    "category": "fiscal_basico",
+    "quality_score": 9.2,
+    "text": "El régimen de Monotributo argentino 2026 tiene categorías de A a K según facturación anual. Categoría A hasta $1.500.000, hasta categoría K con $36.200.000. Servicios tienen topes un 20% menores que venta de bienes. La cuota mensual incluye componente impositivo, aportes jubilatorios y obra social. La recategorización es semestral (enero y julio), evaluando los 6 meses anteriores de facturación.",
+    "questions": [
+      "¿Cuáles son las categorías del Monotributo 2026?",
+      "¿Cuándo se recategoriza el Monotributo?",
+      "¿Cuál es el tope de facturación para Monotributo?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-002",
+    "source_name": "IVA — débito fiscal vs crédito fiscal",
+    "category": "fiscal_basico",
+    "quality_score": 9.3,
+    "text": "La posición de IVA mensual se calcula como débito fiscal (IVA cobrado en ventas) menos crédito fiscal (IVA pagado en compras, solo de facturas tipo A de proveedores validados en el padrón ARCA). Si la posición es positiva, hay que pagar antes del vencimiento según terminación de CUIT. Si es negativa, queda saldo a favor para el período siguiente. Alícuotas vigentes: general 21%, reducida 10,5%, diferencial 27%.",
+    "questions": [
+      "¿Cómo se calcula el IVA a pagar?",
+      "¿Qué es el crédito fiscal?",
+      "¿Cuándo vence el IVA mensual?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-003",
+    "source_name": "Impuesto a las Ganancias — escalas y deducciones",
+    "category": "fiscal_basico",
+    "quality_score": 9.0,
+    "text": "El Impuesto a las Ganancias para personas físicas se calcula sobre una escala progresiva que va del 5% al 35% según el nivel de renta neta. Las deducciones personales incluyen el Mínimo No Imponible, cargas de familia, y deducciones por gastos de salud, seguros y alquiler bajo ciertas condiciones. Para sociedades, la alícuota es fija según el régimen.",
+    "questions": [
+      "¿Cómo se calcula el Impuesto a las Ganancias?",
+      "¿Qué deducciones existen en Ganancias?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-004",
+    "source_name": "Responsable Inscripto — obligaciones principales",
+    "category": "fiscal_basico",
+    "quality_score": 9.1,
+    "text": "Ser Responsable Inscripto en IVA implica presentar DDJJ mensual de IVA, llevar libro IVA compras y ventas, actuar como agente de retención en ciertos casos, y poder computar crédito fiscal de las compras. A diferencia del Monotributo, no hay tope de facturación pero la carga administrativa es mayor.",
+    "questions": [
+      "¿Qué obligaciones tiene un Responsable Inscripto?",
+      "¿Qué diferencia hay entre RI y Monotributo?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-005",
+    "source_name": "Monotributo vs RI vs SAS — comparativa",
+    "category": "estrategia_fiscal",
+    "quality_score": 9.4,
+    "text": "La elección entre Monotributo, Responsable Inscripto y constituir una SAS depende de la facturación, la actividad, si hay empleados, y si los clientes son consumidores finales o empresas. Monotributo conviene con facturación baja y pocos costos con IVA. RI conviene con alto crédito fiscal de compras o clientes corporativos que exigen factura A. SAS conviene cuando se busca separar el patrimonio personal del riesgo empresario o se planea levantar capital.",
+    "questions": [
+      "¿Conviene más Monotributo, RI o SAS?",
+      "¿Cuándo pasar de Monotributo a Responsable Inscripto?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-006",
+    "source_name": "Cargas sociales empleador — F931 y aportes",
+    "category": "laboral_basico",
+    "quality_score": 9.2,
+    "text": "Las cargas sociales del empleador rondan el 23% sobre la remuneración bruta del empleado, incluyendo SIPA, obra social, PAMI, asignaciones familiares y fondo de empleo. El empleado aporta aproximadamente 17% (jubilación 11%, obra social 3%, PAMI 3%). El F931 se presenta mensualmente, con vencimiento según terminación de CUIT entre el día 7 y el 10 del mes siguiente.",
+    "questions": [
+      "¿Cuánto se paga de cargas sociales por un empleado?",
+      "¿Cuándo vence el F931?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-007",
+    "source_name": "Estrategia de costos y rentabilidad PyME",
+    "category": "estrategia_negocio",
+    "quality_score": 8.8,
+    "text": "Para mejorar la rentabilidad de una PyME argentina, las palancas principales son: reducir el Costo de Mercadería Vendida negociando con proveedores o buscando alternativas, optimizar gastos fijos revisando contratos periódicamente, mejorar el margen mediante pricing estratégico, y reducir la carga fiscal eligiendo el régimen correcto y aprovechando créditos e incentivos disponibles.",
+    "questions": [
+      "¿Cómo mejorar la rentabilidad de mi PyME?",
+      "¿Qué hacer para bajar costos en mi negocio?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-008",
+    "source_name": "Estrategia de gestión de personal en PyMEs",
+    "category": "estrategia_negocio",
+    "quality_score": 8.6,
+    "text": "La gestión de personal en PyMEs argentinas requiere balancear el costo laboral con la productividad y retención. Es clave: definir roles claros, dar feedback regular, evitar la sobrecarga del dueño en la toma de decisiones operativas, y formalizar todo el personal para evitar contingencias legales que pueden ser mucho más costosas que el ahorro de no registrar.",
+    "questions": [
+      "¿Cómo gestionar mejor a mi equipo en una PyME?",
+      "¿Por qué es importante registrar a los empleados?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-009",
+    "source_name": "Pricing en contexto inflacionario argentino",
+    "category": "estrategia_negocio",
+    "quality_score": 8.9,
+    "text": "En un contexto de alta inflación como el argentino, las PyMEs deben actualizar precios con frecuencia (mensual o más seguido) para no perder margen real. Es recomendable trabajar con márgenes objetivo en términos porcentuales en lugar de montos fijos, y considerar el costo de reposición de stock al fijar precios, no solo el costo histórico de compra.",
+    "questions": [
+      "¿Cómo manejar los precios con la inflación?",
+      "¿Con qué frecuencia actualizar precios en Argentina?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-010",
+    "source_name": "Cashflow management para PyMEs argentinas",
+    "category": "estrategia_negocio",
+    "quality_score": 9.0,
+    "text": "El manejo de flujo de caja es crítico en PyMEs argentinas por la volatilidad económica. Recomendaciones clave: mantener un colchón de liquidez de al menos 1-2 meses de gastos fijos, monitorear el ciclo de cobro-pago para evitar descalces, y usar herramientas de factoring o descuento de cheques cuando el ciclo de cobro es largo y hay necesidad de capital de trabajo inmediato.",
+    "questions": [
+      "¿Cómo manejar el flujo de caja de mi negocio?",
+      "¿Qué hacer si tengo problemas de liquidez?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-011",
+    "source_name": "RIGI — Régimen de Incentivo para Grandes Inversiones",
+    "category": "incentivos_fiscales",
+    "quality_score": 8.7,
+    "text": "El RIGI (Régimen de Incentivo para Grandes Inversiones) ofrece beneficios fiscales y cambiarios para proyectos de inversión de gran escala en Argentina, incluyendo estabilidad fiscal, alícuotas reducidas de Ganancias, y certeza jurídica a largo plazo. Aunque pensado para grandes inversiones, algunas PyMEs en cadenas de valor asociadas pueden beneficiarse indirectamente.",
+    "questions": [
+      "¿Qué es el RIGI?",
+      "¿Mi empresa puede acceder a los beneficios del RIGI?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-012",
+    "source_name": "SAS — constitución y ventajas",
+    "category": "estructura_societaria",
+    "quality_score": 9.1,
+    "text": "La Sociedad por Acciones Simplificada (SAS) es la forma societaria más rápida y económica de constituir en Argentina, con trámite 100% online en pocos días. Permite uno o más socios, protege el patrimonio personal, y es compatible con futuras rondas de inversión. Es la estructura recomendada para reemplazar sociedades de hecho o para empezar un negocio con responsabilidad limitada desde el principio.",
+    "questions": [
+      "¿Cómo constituir una SAS?",
+      "¿Qué ventajas tiene una SAS sobre una sociedad de hecho?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-013",
+    "source_name": "Vencimientos ARCA — calendario general",
+    "category": "compliance",
+    "quality_score": 9.3,
+    "text": "El calendario fiscal argentino 2026 incluye más de 30 obligaciones recurrentes: IVA mensual, F931, Ganancias (DDJJ y anticipos), Monotributo, IIBB, SICORE, Bienes Personales. Las fechas de vencimiento generalmente dependen de la terminación del CUIT del contribuyente, distribuyendo la carga de presentaciones a lo largo del mes.",
+    "questions": [
+      "¿Qué vencimientos tiene una PyME en Argentina?",
+      "¿Cómo se determina la fecha de vencimiento según el CUIT?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-014",
+    "source_name": "Validación de proveedores en padrón ARCA",
+    "category": "compliance",
+    "quality_score": 9.2,
+    "text": "Antes de computar el crédito fiscal de una factura de compra, es necesario validar que el proveedor esté correctamente inscripto en el padrón de ARCA con la condición fiscal declarada. Un proveedor no validado o con inconsistencias en su situación fiscal puede generar el rechazo del crédito fiscal computado, generando una diferencia a pagar más intereses.",
+    "questions": [
+      "¿Por qué validar proveedores en ARCA?",
+      "¿Qué pasa si compro a un proveedor no validado?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "v1-015",
+    "source_name": "CCMA — consulta de deuda fiscal en ARCA",
+    "category": "compliance",
+    "quality_score": 9.0,
+    "text": "El CCMA (Cuenta Corriente de Contribuyentes) permite consultar la deuda fiscal acumulada de un contribuyente en ARCA, desglosada por período, concepto e intereses. Es la herramienta clave para diagnosticar la situación fiscal real de una empresa antes de cualquier trámite de crédito, venta, o regularización. Importante: el campo de consulta periodoHasta tiene restricciones técnicas según la versión de la API utilizada.",
+    "questions": [
+      "¿Cómo consultar la deuda fiscal de mi empresa?",
+      "¿Qué es el CCMA?"
+    ],
+    "version": "v1"
+  },
+  {
+    "chunk_id": "comp-001",
+    "source_name": "Ventaja competitiva PymeStudio vs software contable",
+    "category": "estrategia_competitiva",
+    "quality_score": 9.5,
+    "text": "PymeStudio compite en tres frentes: software de gestión (Tango, Colppy, Xubio), contadores tradicionales, e IA genérica (ChatGPT). La ventaja diferencial es la combinación de tres capas que ningún competidor tiene juntas: normativa ARCA 2026 específica (no genérica), datos reales del cliente en Supabase, y frameworks de consultoría de clase mundial adaptados al tamaño PyME. El ERP registra lo que pasó. DashBI alerta antes de que pase. El contador que usa DashBI puede atender 5x más clientes con el mismo tiempo. Competidores directos: Tango Gestión (caro, sin IA), Bejerman (no PyME), Colppy (sin ARCA proactivo), Xubio (solo facturación), Alegra (genérico). Frente a IA genérica: ChatGPT no sabe que el periodoHasta de CCMA no puede superar 12/2025. PymeStudio sí. Ese detalle técnico es el moat.",
+    "questions": [
+      "¿En qué se diferencia PymeStudio de Tango o Colppy?",
+      "¿Por qué PymeStudio es mejor que usar ChatGPT para consultas contables?",
+      "¿Cuál es la ventaja competitiva de DashBI frente a los ERPs argentinos?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "comp-002",
+    "source_name": "Ventaja competitiva por sector — agro y servicios profesionales",
+    "category": "estrategia_competitiva",
+    "quality_score": 9.3,
+    "text": "Sector agropecuario: PymeStudio es el único sistema que combina CTG/CPE (ARCA) con compliance fiscal y cashflow agro. Cubre WSCTG, WSCPE, WSLPGv1.6, RG 5017/2021. El productor no necesita 3 sistemas. Canal: agronomías, acopios, cooperativas, Bolsa de Cereales Córdoba. Esfuerzo para ganar el sector: MEDIO. Sector servicios profesionales (estudios, ingenieros, consultores): Facturación de honorarios + SICORE + IVA servicios es el combo más frecuente. El diagnóstico en minutos se recomienda entre colegas — efecto viral. Canal: CPCE Córdoba, colegios de arquitectos. Esfuerzo: BAJO, CAC bajo. Sector tech/software: clientes que facturan en USD, Economía del Conocimiento, Exporta Simple. Valoran UX moderno y API. Confían en Anthropic → confían en DashBI. Prioridad: servicios profesionales + tech primero, luego agro.",
+    "questions": [
+      "¿Qué sectores son prioritarios para PymeStudio?",
+      "¿Cómo entrar al mercado agropecuario con DashBI?",
+      "¿Por qué los profesionales independientes son un buen segmento inicial?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "exo-001",
+    "source_name": "Exo Strategy — contadores como canal de distribución",
+    "category": "estrategia_crecimiento",
+    "quality_score": 9.6,
+    "text": "El activo más valioso para escalar PymeStudio sin capital propio es la cartera de clientes de cada contador. Programa: el contador paga plan Pro (USD 149/mes), onboardea sus clientes bajo su cuenta, PymeStudio crece con CAC cercano a cero. 50 contadores × 10 clientes promedio = 500 PyMEs. LTV por cliente: USD 228/año. El contador se posiciona como 'contador con tecnología' — diferencial frente a colegas tradicionales. Colegios profesionales como amplificadores: CPCE Córdoba tiene miles de matriculados. Propuesta: diagnóstico fiscal gratuito para matriculados durante 30 días. El colegio pone la distribución, PymeStudio pone el producto. Costo: USD 0. Esto es Exo Strategy: usar activos ajenos (cartera, confianza, distribución) en lugar de construir todo propio desde cero.",
+    "questions": [
+      "¿Cómo puede PymeStudio crecer sin invertir en publicidad?",
+      "¿Qué es el programa de contadores de PymeStudio?",
+      "¿Cómo usar el CPCE Córdoba para conseguir clientes?",
+      "¿Cómo apalancarme en activos de otros para crecer?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "exo-002",
+    "source_name": "Exo Strategy — infraestructura y capital ajeno",
+    "category": "estrategia_crecimiento",
+    "quality_score": 9.2,
+    "text": "PymeStudio usa infraestructura ajena en lugar de construirla: AfipSDK provee acceso a ARCA gratis — el dato fiscal es gratuito, el valor está en interpretarlo. Anthropic invirtió miles de millones en Claude — PymeStudio paga USD 0.002 por diagnóstico. ROI infinito comparado con construir un modelo propio. Vercel + Supabase + Railway = infraestructura cloud de clase mundial por USD 5/mes para soportar cientos de usuarios. Capital sin equity: subsidios FONTAR (CONICET/ANPCYT) para desarrollo tecnológico, Córdoba Innova para startups tecnológicas, Revenue-Based Financing cuando el MRR supere USD 500 (Clearco / Capchase ofrecen 3-6x MRR sin dilución). Partners como clientes ancla: un estudio con 50 clientes paga USD 500/mes por features que después se lanzan para todos. El estudio financia el desarrollo.",
+    "questions": [
+      "¿Cómo financia PymeStudio su crecimiento sin levantar inversión?",
+      "¿Qué subsidios públicos puede obtener PymeStudio?",
+      "¿Qué es Revenue-Based Financing y cuándo conviene?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "exo-003",
+    "source_name": "Estrategia de market share — 3 horizontes",
+    "category": "estrategia_crecimiento",
+    "quality_score": 9.1,
+    "text": "Horizonte 1 (0-6 meses): Dominar Córdoba Ciudad. Objetivo: 50 clientes pagos. Inversión: USD 0 en ads, solo tiempo. Tácticas: charla en CPCE Córdoba (200 contadores en sala), diagnóstico gratuito en cámaras de comercio, LinkedIn de Juan (1 post/semana con números reales). Métrica: USD 950/mes MRR. Horizonte 2 (6-18 meses): Córdoba + Buenos Aires. Objetivo: 300 clientes. Tácticas: programa de contadores, integración Tiendanube o MercadoPago, SEO 'diagnóstico fiscal PyME Argentina'. Métrica: USD 5.700/mes MRR. Horizonte 3 (18-36 meses): Latam — Chile, Uruguay, Colombia. Adaptar el skill a normativa local (Chile: SII, Colombia: DIAN). Partner local en cada país como distribuidor. El moat no es la tecnología (replicable) sino la velocidad de ejecución + conocimiento local + datos acumulados.",
+    "questions": [
+      "¿Cuál es el plan de crecimiento de PymeStudio a 3 años?",
+      "¿Cómo conseguir los primeros 50 clientes?",
+      "¿Cuándo expandirse fuera de Córdoba?",
+      "¿Puede PymeStudio expandirse a otros países de Latam?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "mkt-001",
+    "source_name": "Marketing digital para PyMEs argentinas — canales y prioridades",
+    "category": "marketing",
+    "quality_score": 9.0,
+    "text": "Canales por prioridad para PyME argentina: Tier 1 orgánico (costo $0): LinkedIn para B2B y profesionales, Instagram para B2C retail y gastronomía, WhatsApp Business para conversión directa (el canal de cierre en Argentina), Google Mi Negocio para búsquedas locales. Tier 2 bajo costo (USD 50-200/mes): Google Ads para búsquedas de intención alta ('contador Córdoba', 'factura electrónica'), Meta Ads para retargeting. Tier 3 marketplaces: MercadoLibre (40M usuarios Argentina), Tiendanube, Pedidos Ya. Keywords SEO prioritarias para PymeStudio: 'diagnóstico fiscal pyme argentina' (0 competidores directos), 'vencimientos afip 2026', 'monotributo vs responsable inscripto', 'validar proveedor afip', 'calculadora iva argentina'. El canal de menor esfuerzo + mayor velocidad: LinkedIn de Juan + programa de contadores vía CPCE. Empezar ahí antes de invertir en cualquier otra cosa.",
+    "questions": [
+      "¿Cómo conseguir clientes para un negocio PyME sin gastar en publicidad?",
+      "¿Qué keywords usar para posicionar un servicio contable en Google?",
+      "¿Cuál es el mejor canal de marketing para llegar a dueños de PyMEs?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "mkt-002",
+    "source_name": "LinkedIn thought leadership para contadores — estrategia de contenido",
+    "category": "marketing",
+    "quality_score": 9.2,
+    "text": "Posicionamiento para contador con tecnología: 'El contador que usa IA para ayudar a las PyMEs argentinas'. Tipos de posts que funcionan en LinkedIn Argentina: 1) Dato sorprendente: 'El 68% de las PyMEs argentinas pierde crédito fiscal IVA porque no valida sus proveedores en ARCA. ¿Sabías cómo evitarlo?' 2) Caso antes/después: 'Cliente panadería, score 38 en enero. Implementamos 3 cambios. Hoy tiene score 74 y recuperó $2.1M en crédito fiscal.' 3) Tip accionable: '5 cosas que revisar antes del vencimiento de IVA del mes'. 4) Post controversial (más engagement): 'El Monotributo no siempre es la mejor opción. A veces el RI te ahorra más dinero del que pensás.' Cadencia: 3 posts/semana (lunes, miércoles, viernes). Meta: 500 seguidores en Córdoba en 90 días → 50 demos → 15 clientes.",
+    "questions": [
+      "¿Qué tipo de contenido publicar en LinkedIn como contador?",
+      "¿Cómo usar LinkedIn para conseguir clientes como contador?",
+      "¿Con qué frecuencia publicar en LinkedIn?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "cred-001",
+    "source_name": "SGR y acceso a crédito bancario para PyMEs argentinas",
+    "category": "financiamiento",
+    "quality_score": 9.4,
+    "text": "Las Sociedades de Garantía Recíproca (SGR) son el principal instrumento para que PyMEs accedan a crédito bancario en Argentina. Sin el aval de una SGR, el banco generalmente no presta. Con el aval, la PyME accede a tasas preferenciales del Banco Nación u otros. SGRs principales: Garantizar SGR (la más grande, respaldada por BICE), Afianzar SGR (producción y agro), Don Mario SGR (agropecuario). Requisitos típicos: 2 años de antigüedad, DDJJ al día en ARCA, sin deuda en CCMA, aporte del 2.5% del monto como socio partícipe. Banco Nación líneas PyME 2026: Línea 400 (capital de trabajo, tasa subsidiada), PyME Plus (bienes de capital), línea Agro (prefinanciación de cosecha). El score DashBI > 70 + 6 meses de historial = carpeta de crédito lista. Una empresa con historial limpio en DashBI tiene todo para presentarse a una SGR.",
+    "questions": [
+      "¿Cómo accede una PyME a crédito bancario en Argentina?",
+      "¿Qué es una SGR y cómo funciona?",
+      "¿Qué necesita una PyME para sacar un crédito en el Banco Nación?",
+      "¿Cómo usar el historial de DashBI para acceder a crédito?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "cred-002",
+    "source_name": "Fintech lending y factoring para PyMEs argentinas",
+    "category": "financiamiento",
+    "quality_score": 9.1,
+    "text": "Alternativas fintech al banco tradicional para PyMEs: Mercado Crédito: basado en historial de ventas en MercadoPago/ML, sin DDJJ, aprobación en horas. Ualá Bis: para comercios con terminal de pago Ualá. Afluenta: crowdlending con tasas competitivas, sin aval. Factoring — anticipar cobros: Cheques de pago diferido negociados en Bolsa (tasa más baja que banco). Facturas de crédito MiPyME: negociables en SISCAAV (BYMA). Cuándo recomendar factoring: ciclo de cobro largo (60-90 días) + caja ajustada. Es mejor anticipar el cobro que pedir un préstamo. FOGAR (Fondo de Garantías Argentino): garantía estatal para PyMEs que no califican en SGR privada. Tope hasta USD 200.000. Leasing para bienes de capital: cuotas deducibles de Ganancias, el bien queda fuera del balance hasta la opción de compra.",
+    "questions": [
+      "¿Qué opciones de financiamiento tiene una PyME sin historial bancario?",
+      "¿Qué es el factoring y cuándo conviene?",
+      "¿Cómo descontar cheques en Argentina?",
+      "¿Qué es el FOGAR?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "cx-001",
+    "source_name": "Exporta Simple y Economía del Conocimiento para PyMEs",
+    "category": "comercio_exterior",
+    "quality_score": 9.5,
+    "text": "Exporta Simple (RG ARCA 5000/2021): para PyMEs que exportan hasta USD 600.000/año. Trámite 100% online, cobro en USD en cuenta local, exención de IVA en la exportación, devolución de retenciones IVA de compras. Sin cupo BCRA para importes bajo umbral. Proceso: registrarse como exportador en ARCA, emitir factura E desde FacturaFácil, declarar cobro del exterior en 30 días, liquidar divisas en MULC. Economía del Conocimiento (Ley 27.506): para software, servicios tech, diseño, consultoría, contenidos digitales. Beneficios 2026: estabilidad fiscal 10 años, Ganancias al 15% (vs 35% general), bono crédito fiscal hasta 70% de cargas sociales, libre disponibilidad del 30% de divisas sin liquidar al oficial. Requisitos: inscripción en Registro de Beneficiarios SEPYME, exportar un % mínimo, inversión en I+D documentada. Cuándo recomendar: empresa tech con facturación > $20M ARS → siempre analizar.",
+    "questions": [
+      "¿Cómo puede una PyME exportar servicios en Argentina?",
+      "¿Qué es Exporta Simple y quiénes pueden usarlo?",
+      "¿Qué beneficios tiene la Ley de Economía del Conocimiento?",
+      "¿Cómo cobrar en dólares siendo una empresa argentina?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "cx-002",
+    "source_name": "Régimen cambiario BCRA para exportadores e importadores PyME",
+    "category": "comercio_exterior",
+    "quality_score": 9.2,
+    "text": "Exportadores — obligación de liquidación de divisas 2026: Servicios: liquidar en MULC a los 5 días hábiles del cobro. Bienes: liquidar a los 15-30 días según tipo de bien. Economía del Conocimiento: 30% libre disponibilidad, 70% MULC. Los exportadores pueden mantener el % de libre disponibilidad en cuenta USD sin liquidar — ventaja vs importadores. Importadores — Sistema SIRA: solicitar licencia en ARCA antes de importar, esperar aprobación (puede tardar semanas), pagar al exterior con SIRA aprobado. Riesgo para PyMEs importadoras: alta dependencia de insumos importados = riesgo de desabastecimiento o suba de costos por restricciones SIRA. Derechos de exportación (retenciones): soja 33%, trigo 12%, maíz 12%, manufacturas industriales 4.5%, servicios y tecnología 0%. Incoterms más usados: FOB para exportar (responsabilidad limitada), CIF para importar (proveedor gestiona flete).",
+    "questions": [
+      "¿Cuánto tiempo tengo para liquidar divisas si cobro del exterior?",
+      "¿Qué es el SIRA y cómo afecta a las importaciones?",
+      "¿Qué retenciones paga una PyME que exporta?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "val-001",
+    "source_name": "Valuación de PyMEs argentinas — métodos y múltiplos",
+    "category": "valuacion_ma",
+    "quality_score": 9.3,
+    "text": "Métodos de valuación para PyMEs argentinas: 1) Múltiplos de EBITDA (el más usado): Valor = EBITDA ajustado × múltiplo sector. EBITDA ajustado = resultado neto + depreciaciones + intereses + Ganancias + sueldo del dueño normalizado - gastos no recurrentes. Múltiplos por sector 2026: software/tech 4x-8x, servicios profesionales 2x-4x, comercio/retail 1.5x-3x, gastronomía 1x-2x, agropecuario 3x-6x. Aplicar descuento del 20-30% vs Chile/Brasil por prima de riesgo país. 2) Revenue múltiple (SaaS): ARR × múltiplo. < USD 100k ARR: 1x-2x; USD 100k-500k: 2x-4x; > USD 500k: 4x-8x con churn < 5%. Para PymeStudio: con USD 50k ARR → valor indicativo USD 100k-200k. 3) Valor de activos netos: para inmobiliarias, agro, industria con maquinaria. Ajustar inmuebles a valor de mercado, descontar deuda fiscal CCMA, incluir contingencias laborales (empleados no registrados).",
+    "questions": [
+      "¿Cuánto vale mi empresa PyME?",
+      "¿Cómo se calcula el EBITDA para valuar una PyME?",
+      "¿Qué múltiplo aplica para valuar un negocio de servicios en Argentina?",
+      "¿Cómo valuar una empresa de software o SaaS en Argentina?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "val-002",
+    "source_name": "Due diligence fiscal para venta de PyME y rol de DashBI",
+    "category": "valuacion_ma",
+    "quality_score": 9.5,
+    "text": "Red flags que destruyen valor en una venta de PyME: deuda ARCA no declarada (CCMA), empleados no registrados (contingencia LCT), sociedad de hecho (responsabilidad ilimitada del vendedor), proveedores sin validar (crédito fiscal cuestionable), DDJJ no presentadas. Checklist para preparar la venta (empezar 6 meses antes): Mes 1-2: regularizar empleados no registrados. Mes 2-3: saldar deuda ARCA o activar plan de facilidades. Mes 3-4: constituir SAS/SRL si está en sociedad de hecho. Mes 4-5: limpiar proveedores sin validar. Mes 5-6: tener 6 meses de historial limpio en DashBI. DashBI aumenta el precio de venta: el historial en Supabase es la carpeta de due diligence lista. El comprador tiene visibilidad real, el riesgo fiscal está cuantificado, la gestión es transferible (no depende del dueño). Una empresa con score DashBI > 70 durante 12 meses puede valer 2x vs 4x el EBITDA.",
+    "questions": [
+      "¿Qué necesito ordenar antes de vender mi empresa?",
+      "¿Qué revisa el comprador en el due diligence de una PyME?",
+      "¿Cómo DashBI ayuda a vender mejor una empresa?",
+      "¿Cuáles son los red flags que bajan el precio de una PyME?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "fran-001",
+    "source_name": "Estructura legal y fiscal de franquicias en Argentina",
+    "category": "franquicias",
+    "quality_score": 9.2,
+    "text": "Argentina no tiene ley de franquicias específica — se rige por el Código Civil y Comercial (arts. 1512-1520). Componentes del contrato: fee inicial (pago único), regalías (% ventas, típico 4-8%), fondo de publicidad (1-3% adicional), exclusividad territorial, duración 3-5 años. Registro de marca en INPI es crítico antes de franquiciar. Sin marca registrada, el franquiciado podría registrarla. Costo: USD 300-500 por clase, 18-24 meses. Estructura recomendada para franquiciante: SAS (constitución rápida, múltiples socios). Fiscal del franquiciante: fee inicial + regalías gravados en Ganancias + IVA 21%. Fiscal del franquiciado: fee inicial amortizable en 10 años (Ganancias), regalías como gasto deducible + crédito fiscal IVA. IIBB: si el franquiciante está en Buenos Aires y el franquiciado en Córdoba, Convenio Multilateral obligatorio para el franquiciante.",
+    "questions": [
+      "¿Cómo franquiciar mi negocio en Argentina?",
+      "¿Qué impuestos paga el franquiciante y el franquiciado?",
+      "¿Es necesario registrar la marca antes de franquiciar?",
+      "¿Qué debe incluir un contrato de franquicia?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "mit-001",
+    "source_name": "MIT — Compliance como ventaja competitiva y Maturity Model",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.4,
+    "text": "Las empresas que tratan el compliance como inversión (no como costo) obtienen: menor costo de capital, acceso a licitaciones corporativas, valuación más alta en M&A. Compliance Maturity Model para PyMEs argentinas: Nivel 1 Reactivo: cumple cuando llega la multa. Nivel 2 Activo: presenta en tiempo, sin deuda. Nivel 3 Preventivo: alerta antes del vencimiento (DashBI). Nivel 4 Estratégico: usa el compliance para abrir puertas (crédito, contratos). Objetivo DashBI: llevar clientes del Nivel 1-2 al Nivel 3-4. Behavioral Economics (MIT): el 73% de los dueños subestima el interés punitorio. Los recordatorios visuales (semáforos, barras de progreso) reducen el delay en 40%. El framing de pérdida ('perdés $X por mes') es más efectivo que el de ganancia. Complexity Theory: una PyME argentina pierde 312 horas/año en compliance (Banco Mundial). DashBI lo reduce a ~48 horas/año.",
+    "questions": [
+      "¿Por qué el compliance es una ventaja competitiva?",
+      "¿Cómo ayuda DashBI a mejorar el nivel de compliance de una empresa?",
+      "¿Cuánto tiempo pierde una PyME argentina en trámites impositivos?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "mit-002",
+    "source_name": "Opciones Reales MIT — decisiones societarias y fiscales",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.3,
+    "text": "Cada decisión estructural de una PyME crea o destruye opciones futuras. Constituir SAS: abre opciones de levantar capital, vender, franquiciar. Quedarse en sociedad de hecho: cierra opciones de vender, invertir, crecer. Pasar a RI siendo MT: abre clientes corporativos y crédito fiscal. Registrar todos los empleados: abre contratos grandes y acceso a banco. Usar DashBI con historial 12 meses: abre crédito SGR y mejor precio de venta. First Principles aplicado al régimen fiscal: No elegir régimen 'porque siempre fue así'. Analizar: ¿Cuál es la base imponible real? ¿Qué puedo controlar (régimen, deducciones, timing, incentivos)? ¿Qué estoy dejando de controlar hoy? (crédito fiscal de proveedores, incentivos no aprovechados, estructura societaria)",
+    "questions": [
+      "¿Qué opciones abre constituir una SAS?",
+      "¿Por qué es importante elegir bien el régimen impositivo?",
+      "¿Cómo pensar las decisiones fiscales desde cero?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "start-001",
+    "source_name": "OKRs Google y Lean Startup aplicados a PyMEs argentinas",
+    "category": "frameworks_gestion",
+    "quality_score": 9.1,
+    "text": "OKRs (Google) para PyME argentina — ejemplo trimestral: Objetivo: ordenar el compliance fiscal en Q3 2026. KR1: cero vencimientos vencidos al 30/09. KR2: 100% proveedores validados en ARCA. KR3: F931 presentado antes del día 5 de cada mes. KR4: deuda ARCA reducida a $0. El diagnóstico DashBI genera los OKRs automáticamente según riesgos detectados. Lean Startup Build-Measure-Learn para DashBI: BUILD: diagnóstico con parser local (v1 deployado). MEASURE: ¿completan el diagnóstico? ¿son útiles las recomendaciones? LEARN: ¿qué señales detecta mal? ¿qué dimensión importa más? BUILD v2: Claude API para análisis real. Pirate Metrics (AARRR): Acquisition (llega a DashBI), Activation (hace su primer diagnóstico), Retention (vuelve en 30 días), Revenue (convierte a plan pago), Referral (recomienda a otro PyME).",
+    "questions": [
+      "¿Cómo establecer objetivos claros para una PyME?",
+      "¿Qué son los OKRs y cómo se aplican a un negocio chico?",
+      "¿Cómo medir el crecimiento de un SaaS como PymeStudio?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "start-002",
+    "source_name": "Unit economics y pricing para PymeStudio",
+    "category": "frameworks_gestion",
+    "quality_score": 9.3,
+    "text": "Unit economics de PymeStudio: CAC (Costo de Adquisición): canal directo content/CPCE USD 15-25, canal contador referido USD 5-10, canal partnership USD 2-5. LTV (Lifetime Value): Plan Compliance USD 19: LTV = USD 456 (24 meses). Plan Campo USD 29: LTV = USD 696. Plan Empresa USD 79: LTV = USD 1.896. LTV:CAC ratio objetivo: > 10x (SaaS excelente = 10x+). Payback period objetivo: < 3 meses. Tiempo liberado por DashBI: 22 horas/mes. Hora de contador: ~USD 12. Valor mensual liberado: ~USD 264. Precio DashBI Compliance: USD 19/mes. ROI para el contador: 13x. Pricing philosophy (Stripe): cobrar por valor entregado, no por features. Free tier: 1 diagnóstico/mes → captura CUIT + email + datos empresa → upgrade.",
+    "questions": [
+      "¿Cuánto cuesta conseguir un cliente para PymeStudio?",
+      "¿Cuánto vale un cliente de DashBI en el tiempo?",
+      "¿Es rentable el negocio de PymeStudio?",
+      "¿Qué ROI obtiene un contador usando DashBI?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ext-001",
+    "source_name": "Extensiones de producto prioritarias para DashBI",
+    "category": "producto",
+    "quality_score": 9.2,
+    "text": "Extensiones de mayor impacto y menor esfuerzo para DashBI: 1) PDF Report (1 semana): exportar diagnóstico con logo del estudio — el contador lo justifica con un solo cliente y sube de plan. 2) Historial de score (3 días): guardar cada diagnóstico en Supabase + gráfico de evolución mensual — switching cost que evita el churn. 3) Sesión 1:1 con Juan (0 desarrollo — solo Calendly): USD 49 por 45 minutos. El SaaS da la herramienta, el humano cierra. 4) WhatsApp alertas (1 semana): Twilio o Meta WhatsApp Cloud API para alertas de vencimiento donde el cliente realmente está. 5) DashBI Crédito (partnership SGR): score DashBI > 70 + historial = carpeta de crédito lista. Comisión por lead que toma crédito. Progresión de valor: hoy 'te digo cómo está tu empresa', en 6 meses 'también lo resuelvo: liquido sueldos, genero contratos', en 12 meses 'el sistema operativo contable de tu PyME'.",
+    "questions": [
+      "¿Qué nuevas features debería agregar DashBI?",
+      "¿Cómo puede PymeStudio aumentar el ingreso por cliente?",
+      "¿Qué servicios complementarios puede ofrecer un contador con DashBI?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ext-002",
+    "source_name": "Blue Ocean — PymeScore y DashBI para Franquicias",
+    "category": "producto",
+    "quality_score": 9.0,
+    "text": "Movimientos Blue Ocean para PymeStudio — crear mercado nuevo: PymeScore público: como el score crediticio pero de salud empresarial. Una PyME comparte su PymeScore verificado con un proveedor o banco como prueba de confiabilidad sin mostrar sus números privados. El proveedor confía y da 30 días de plazo en vez de pago anticipado. Network effect: cuantas más empresas tienen PymeScore, más vale el score. DashBI para Franquicias: panel central para que el franquiciador monitoree la salud fiscal de toda su red. USD 15/local/mes × 30 locales = USD 450/mes por un solo cliente franquicia. DashBI Academia: micro-cursos de 5-10 minutos sobre temas del diagnóstico. SEO orgánico potente + posicionamiento de autoridad + conversión. DashBI Benchmark: score vs sector — percentil de salud fiscal por actividad.",
+    "questions": [
+      "¿Qué es el PymeScore?",
+      "¿Cómo puede DashBI servir a redes de franquicias?",
+      "¿Qué nuevos mercados puede abrir PymeStudio?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "bpm-001",
+    "source_name": "BPM — Proceso de compliance en DashBI",
+    "category": "procesos",
+    "quality_score": 9.0,
+    "text": "Mapa de proceso de compliance en DashBI (BPM CBOK): TRIGGER: ARCA publica vencimiento → PROCESO: motor DashBI detecta → OUTPUT: alerta Resend al cliente → DECISIÓN: ¿tiene datos en Supabase? SÍ → calcula posición IVA automática. NO → prompt para ingresar datos. ACCIÓN: genera VEP link → cliente paga → CONTROL: marca vencimiento como cumplido → score actualizado. Métricas BPM para DashBI: Cycle time: tiempo desde alerta hasta pago del vencimiento. Error rate: % de vencimientos que se pasan (objetivo: 0%). Automation rate: % de pasos automáticos vs manuales (objetivo: > 70%). Scrum adaptado al ciclo contable: Sprint = mes fiscal, Daily = check automático de vencimientos, Sprint Review = revisión posición IVA día 20, Retrospectiva = diagnóstico trimestral.",
+    "questions": [
+      "¿Cómo funciona el proceso de alertas de vencimiento en DashBI?",
+      "¿Cómo medir la eficiencia del compliance de una empresa?",
+      "¿Qué automatiza DashBI en el proceso contable?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-001",
+    "source_name": "Overnight Strategist — 7-Step Strategic Thinking Model",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.5,
+    "text": "El modelo de pensamiento estratégico de 7 pasos (Overnight Strategist) convierte ideas crudas en estrategia clara y narrativa que inspira acción. Los 7 pasos en cascada son: 1) DEFINIR EL PROBLEMA: construir un problem statement claro — qué es el problema y por qué vale la pena resolverlo. Sin esto, todo lo demás falla. 2) DESCOMPONER EN PARTES: usar árboles lógicos para romper el problema en componentes manejables (MECE — mutuamente exclusivos y colectivamente exhaustivos). 3) ANALIZAR CADA PARTE: detective work para validar hipótesis. Combinar análisis cuantitativo (números, KPIs) y cualitativo (entrevistas, observación). 4) CREAR INSIGHT: encontrar los 'so what' — los patrones y el significado en los datos. Los gold nuggets que informan la solución. 5) CONSTRUIR LA NARRATIVA: ensamblar los hallazgos en una historia estructurada y compelling que describe el diseño propuesto y por qué hacerlo ahora. 6) TOMAR UNA DECISIÓN: influenciar a equipos y sponsors con argumentos lógicos para conseguir el 'go / no go'. 7) EJECUTAR CON BOLDNESS: roadmaps orientados a outcomes, equipos alineados, implementación del diseño. El proceso es un Strategy Loop — iterativo, no lineal. Aplicado a PyMEs argentinas: el diagnóstico DashBI ejecuta los pasos 1-4 automáticamente. El contador hace los pasos 5-7 con el cliente.",
+    "questions": [
+      "¿Cómo construir una estrategia para mi negocio paso a paso?",
+      "¿Qué es el pensamiento estratégico y cómo aplicarlo en una PyME?",
+      "¿Cómo ir de una idea a una estrategia concreta?",
+      "¿Cuáles son los pasos para crear una estrategia de negocios?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-002",
+    "source_name": "Overnight Strategist — Definir el problema (Step 1)",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.4,
+    "text": "El paso más crítico y más subestimado en estrategia: definir correctamente el problema. Un problem statement claro tiene estas características: — Especifica quién tiene el problema (el dueño PyME, el contador, el proveedor) — Describe qué está pasando vs qué debería pasar (gap) — Cuantifica el impacto cuando es posible ($X en crédito fiscal perdido, Y horas/mes en compliance) — Es accionable: tiene una solución posible Errores frecuentes al definir el problema en PyMEs argentinas: — 'Necesito un contador' (síntoma, no el problema) — 'Tengo problemas fiscales' (demasiado vago) — 'Quiero crecer' (es un objetivo, no un problema) Problem statement correcto: 'Perdemos $X de crédito fiscal IVA por mes porque no validamos a nuestros proveedores en el padrón ARCA antes de registrar las compras. Esto se puede resolver con validación automática en DashBI.' Gastar tiempo extra en definir el problema es siempre buena inversión — resuelve el problema correcto en lugar de el más obvio.",
+    "questions": [
+      "¿Cómo definir el problema principal de mi negocio?",
+      "¿Cómo escribir un problem statement para mi empresa?",
+      "¿Cómo saber cuál es el verdadero problema y no solo el síntoma?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-003",
+    "source_name": "Overnight Strategist — Descomponer el problema (Step 2)",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.3,
+    "text": "Descomponer el problema en partes usando el árbol lógico (logic tree). El principio: 'cómo comés un elefante — de a un bocado por vez'. Regla MECE: cada parte del árbol debe ser Mutuamente Exclusiva (sin superposición) y Colectivamente Exhaustiva (sin gaps). Árbol lógico para diagnóstico fiscal de una PyME: PROBLEMA: alta carga fiscal ├── Régimen incorrecto │   ├── MT cuando debería ser RI │   └── RI cuando podría ser MT ├── Créditos no aprovechados │   ├── IVA compras no computado (proveedores no validados) │   ├── Retenciones no recuperadas (SICORE/SIRCREB) │   └── Incentivos no solicitados (RIGI, Econ. Conocimiento) └── Gastos deducibles no utilizados     ├── Ganancias — deducciones personales     └── Ganancias — gastos de la actividad no documentados Este árbol permite al contador identificar exactamente dónde está la pérdida en lugar de hacer un análisis general. DashBI usa este árbol implícitamente en el módulo de diagnóstico.",
+    "questions": [
+      "¿Cómo analizar la situación fiscal de una empresa de forma ordenada?",
+      "¿Cómo descomponer un problema complejo en partes manejables?",
+      "¿Qué es MECE y cómo se aplica al análisis contable?",
+      "¿Cómo encontrar dónde está la pérdida fiscal de mi empresa?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-004",
+    "source_name": "Overnight Strategist — Crear insights y narrativa estratégica (Steps 4-5)",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.4,
+    "text": "Crear insight es el paso que diferencia al estratega del analista. No es suficiente mostrar los datos — hay que mostrar el 'so what'. Estructura de insight para diagnóstico PyME: DATO: 'El 42% de las compras del mes tienen proveedores no validados en ARCA' INSIGHT: 'Esto significa que estás perdiendo $180.000 de crédito fiscal IVA por mes — $2.1M al año — que podrías recuperar con validación automática.' SO WHAT: 'La solución es activar el módulo de validación de proveedores en DashBI esta semana. El ROI es inmediato.' La narrativa estratégica (Step 5) ensambla todos los insights en una historia: — Situación actual (diagnóstico) — Problema específico con números — Solución propuesta con impacto estimado — Por qué actuar ahora (urgencia) — Próximos pasos concretos Esta es exactamente la estructura del informe DashBI para entregar al cliente. El que presenta una narrativa así se convierte en trusted advisor, no solo en el contador que presenta los números.",
+    "questions": [
+      "¿Cómo presentarle los resultados del diagnóstico a un cliente PyME?",
+      "¿Cómo armar un informe contable que realmente impacte al cliente?",
+      "¿Cómo crear una narrativa estratégica para una empresa?",
+      "¿Qué es un insight y cómo se diferencia de un dato?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-005",
+    "source_name": "Overnight Strategist — Decisión e implementación (Steps 6-7)",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.2,
+    "text": "Step 6: Influenciar la decisión. El criterio de evaluación para que el cliente tome la decisión correcta: — Impacto financiero (cuánto ahorra o gana con la solución) — Urgencia (qué pasa si no actúa — interés punitorio, multa, pérdida acumulada) — Esfuerzo de implementación (¿cuánto tiempo lleva?) — Riesgo de no hacer nada (vs riesgo de implementar) Árbol de decisión para paso de MT a RI: ¿Facturación supera tope MT? ├── SÍ → ¿Tiene clientes corporativos que exigen factura A? │   ├── SÍ → Pasar a RI inmediatamente │   └── NO → Evaluar según crédito fiscal de compras └── NO → Mantenerse en MT y recategorizar Step 7: Ejecutar con boldness. Un roadmap orientado a outcomes para PyME: SEMANA 1: activar validación proveedores ARCA en DashBI MES 1: presentar DDJJ atrasadas y activar plan de facilidades MES 2-3: constituir SAS si el objetivo es crecer o vender MES 4-6: implementar OKRs trimestrales con score DashBI como KR principal La estrategia sin ejecución es solo un documento. El contador que acompaña la ejecución tiene 10x más valor que el que solo informa.",
+    "questions": [
+      "¿Cómo ayudar a un cliente a tomar una decisión fiscal importante?",
+      "¿Cómo crear un plan de implementación para ordenar una empresa?",
+      "¿Cuáles son los primeros pasos para mejorar la situación fiscal de una PyME?",
+      "¿Cómo hacer que el cliente actúe sobre las recomendaciones del diagnóstico?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-006",
+    "source_name": "Overnight Strategist — Posicionamiento de mercado y diferenciación",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.3,
+    "text": "El mapa de posicionamiento competitivo es uno de los frameworks más usados en estrategia de crecimiento. Visualiza dónde está la empresa vs competidores en dos dimensiones relevantes para el cliente. Mapa de posicionamiento de PymeStudio: Eje X: Especialización en normativa local (baja → alta) Eje Y: Inteligencia IA / automatización (baja → alta) Posicionamiento de competidores: — Tango/Bejerman: alta especialización local, baja IA → cuadrante inferior derecho — ChatGPT/IA genérica: alta IA, baja especialización → cuadrante superior izquierdo — Contador tradicional: alta especialización, sin IA → cuadrante inferior derecho — PymeStudio: alta especialización + alta IA → cuadrante superior derecho (SOLO) Este es el espacio en blanco — Blue Ocean — donde no hay competidores directos. Para una PyME cliente, el mismo ejercicio: ¿En qué dos dimensiones valoradas por TUS clientes sos mejor que todos? Esa es tu propuesta de valor diferencial. Si no podés responderlo, es la primera conversación estratégica a tener.",
+    "questions": [
+      "¿Cómo saber cuál es la ventaja competitiva de mi negocio?",
+      "¿Cómo posicionar mi empresa vs la competencia?",
+      "¿Cómo encontrar un espacio de mercado sin competidores?",
+      "¿Por qué PymeStudio es diferente de otras herramientas contables?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-007",
+    "source_name": "Overnight Strategist — Pensamiento estratégico para thought leadership",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.1,
+    "text": "El pensamiento estratégico claro te convierte en thought leader y trusted advisor. Los componentes del pensamiento estratégico según Overnight Strategist: Problem Solving + Commercial Acumen + Visual Design + Storytelling + Execution. Para el contador argentino que usa DashBI, esto se traduce en: — Problem Solving: el diagnóstico de 5 dimensiones identifica el problema real — Commercial Acumen: cuantifica el impacto en pesos ($X de crédito fiscal perdido) — Visual Design: el semáforo y el score comunican el estado de forma inmediata — Storytelling: el informe PDF cuenta la historia del negocio con datos reales — Execution: las recomendaciones priorizadas con timeline concreto La diferencia entre un contador ordinario y un trusted advisor: El ordinario dice 'tenés $180.000 de IVA a pagar'. El trusted advisor dice 'identificamos $2.1M/año en crédito fiscal perdido, lo recuperamos en 30 días activando esta función, y acá está el plan'. Eso es lo que permite cobrar 5x más y retener clientes de por vida. DashBI es la herramienta. El pensamiento estratégico es el multiplicador.",
+    "questions": [
+      "¿Cómo un contador puede convertirse en asesor estratégico de sus clientes?",
+      "¿Cómo agregar más valor a los clientes PyME como contador?",
+      "¿Cómo posicionarse como thought leader en el sector contable?",
+      "¿Qué diferencia a un buen contador de un gran asesor de negocios?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "os-008",
+    "source_name": "Overnight Strategist — Contraste como herramienta de narrativa estratégica",
+    "category": "frameworks_estrategia",
+    "quality_score": 9.6,
+    "text": "El contraste es la herramienta de comunicación estratégica más poderosa y subutilizada. Cuando ponés dos realidades lado a lado, forzás a tu audiencia a confrontar el gap entre ellas. Ese gap es donde el insight estratégico se revela. El contraste no describe el problema — lo hace sentir. Los 4 tipos de contraste aplicados a consultoría PyME argentina: 1) OLD WAY vs NEW WAY: 'Antes el cliente llamaba cuando ya tenía la multa. Con DashBI recibe la alerta 7 días antes.' 2) LO QUE CREEMOS vs LO QUE HACE EL CLIENTE: 'Creemos que el cliente quiere el informe detallado. En realidad pregunta solo si tiene que pagar o no.' Implicancia: el semáforo y el score son más efectivos que 10 páginas de análisis. 3) LO QUE DECIMOS vs LO QUE HACEMOS: detecta inconsistencias entre discurso y comportamiento real. Uso en diagnóstico: cuando el cliente declara querer crecer pero tiene empleados en negro, el contraste lo hace visible sin confrontar directamente. 4) LO QUE HACEMOS vs LO QUE NECESITA EL MERCADO: 'El contador presenta balances anuales. La PyME necesita alertas semanales.' Estructura de contraste en el informe DashBI: [ESTADO ACTUAL] 'Hoy: 3 proveedores sin validar. Crédito fiscal perdido: $180.000/mes.' VS [ESTADO OBJETIVO] 'En 30 días: validación activa. Crédito recuperado: $2.1M/año.' El gap de $2.1M/año es la tensión. La tensión motiva la acción. Reglas: usar números reales del cliente, mismo nivel de abstracción en ambos lados, siempre ofrecer el puente (la solución). El contraste sin solución crea ansiedad sin dirección. El semáforo del diagnóstico DashBI ES un contraste visual: rojo (actual) vs verde (objetivo). Cada recomendación debe estructurarse como contraste: 'Sin esto: [consecuencia con número]. Con esta acción: [beneficio con número y timeline].'",
+    "questions": [
+      "¿Cómo presentarle los resultados a un cliente de forma que tome acción?",
+      "¿Cómo hacer que el cliente entienda su situación fiscal rápidamente?",
+      "¿Cómo construir una narrativa estratégica convincente?",
+      "¿Cómo comunicar el valor de DashBI a un cliente escéptico?",
+      "¿Cómo mostrar la diferencia entre la situación actual y la ideal?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ss-001",
+    "source_name": "Vision Map — del estado actual al futuro deseado para PyMEs",
+    "category": "habilidades_blandas",
+    "quality_score": 9.5,
+    "text": "El Vision Map es una herramienta de exploración estratégica con tres componentes: Estado Actual (documentar honestamente la situación), Estado Futuro (soñar sin restricciones a 3 años), y El Puente (acciones concretas que cierran el gap). Para PyMEs argentinas, el Vision Map conecta las recomendaciones del diagnóstico DashBI con el propósito profundo del dueño. Cuando el cliente ve que 'constituir una SAS' está en el puente hacia 'poder vender la empresa en 5 años', la recomendación deja de ser burocracia y se convierte en un paso estratégico que él mismo quiere dar. Pregunta clave para usar con el cliente: 'Si dentro de 3 años tu empresa fuera exactamente como querés que sea, ¿cómo se vería un día normal tuyo?' El Vision Map revela el GAP entre dónde está y dónde quiere ir — ese gap es exactamente lo que el diagnóstico DashBI ayuda a cerrar.",
+    "questions": [
+      "¿Cómo ayudar a un cliente PyME a definir a dónde quiere ir?",
+      "¿Qué es el Vision Map y cómo se aplica a una PyME?",
+      "¿Cómo conectar las recomendaciones del diagnóstico con los objetivos del dueño?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ss-002",
+    "source_name": "Force Field Analysis — por qué los cambios no se implementan en PyMEs",
+    "category": "habilidades_blandas",
+    "quality_score": 9.6,
+    "text": "El Force Field Analysis (Kurt Lewin) mapea las fuerzas que impulsan un cambio vs las que lo frenan. El cambio ocurre cuando las fuerzas impulsoras superan a las restrictivas o cuando se reducen las resistencias. Para PyMEs argentinas, este framework explica por qué las recomendaciones del diagnóstico DashBI no se implementan. Ejemplo — 'Registrar al empleado en negro': Fuerzas impulsoras: evitar multa AFIP (alto), acceder a crédito bancario (medio), dormir tranquilo (alto). Fuerzas restrictivas: costo de cargas sociales (alta), miedo al convenio colectivo (alta), 'todos lo hacen en este rubro' (media), no saber el procedimiento (media). La estrategia no es convencer — es reducir las resistencias: calcular el costo real vs el riesgo, mostrar el procedimiento paso a paso, mostrar casos de inspecciones reales en el sector. Usar Force Field cuando una recomendación urgente lleva más de 30 días sin implementarse.",
+    "questions": [
+      "¿Por qué el cliente no implementa las recomendaciones del diagnóstico?",
+      "¿Cómo identificar las barreras para el cambio en una PyME?",
+      "¿Qué hacer cuando el cliente dice que va a cambiar pero no lo hace?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ss-003",
+    "source_name": "Activation Curve — cómo la gente adopta (o no) cambios como DashBI",
+    "category": "habilidades_blandas",
+    "quality_score": 9.4,
+    "text": "La Activation Curve (XPLANE) describe el viaje de adopción del cambio en 5 etapas: 1) Awareness: sabe que el cambio existe pero no entiende por qué le importa. 2) Understanding: entiende qué es y cómo lo afecta. 3) Belief: cree que vale la pena. 4) Ability: tiene las habilidades para hacerlo. 5) Reinforcement: es el nuevo comportamiento normal. Aplicado a implementar DashBI con un cliente: Etapa 1: 'Hay un sistema que te avisa antes de los vencimientos' Etapa 2: demo de 5 minutos del módulo de vencimientos Etapa 3: 'Este cliente recuperó $2.1M de crédito fiscal en 30 días' Etapa 4: setup juntos, primera factura cargada en el sistema Etapa 5: 'El mes pasado no pagaste ninguna multa — compará con antes' Error más común: saltar a Etapa 4 sin haber pasado por 1, 2 y 3. El cliente no usa el sistema no porque no sepa — sino porque no cree que valga la pena.",
+    "questions": [
+      "¿Por qué el cliente no usa DashBI después de la implementación?",
+      "¿Cómo hacer que el cliente adopte una nueva herramienta o proceso?",
+      "¿Cuáles son las etapas por las que pasa una persona antes de adoptar un cambio?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ss-004",
+    "source_name": "Modern Leadership — el dueño PyME como líder de equipo",
+    "category": "habilidades_blandas",
+    "quality_score": 9.3,
+    "text": "El cuello de botella más común en PyMEs argentinas no es el mercado ni el capital — es el liderazgo del dueño. Las 6 dimensiones críticas: 1) Visión: ¿tu equipo sabe a dónde va el negocio sin que vos estés? 2) Delegación: 4 niveles — hacés todo, delegás tareas, delegás responsabilidades, el equipo decide solo. La mayoría de los dueños PyME están en nivel 1 o 2. 3) Feedback: solo cuando algo sale mal (reactivo) vs continuo bidireccional (alto rendimiento). 4) Cultura: lo que se tolera se convierte en cultura. 'Decimos que valoramos la calidad pero cortamos costos en lo que no se ve.' 5) Desarrollo: el empleado que no crece se va o se queda desmotivado. 6) Energía propia: el dueño que trabaja 80 horas no puede pedir al equipo que trabaje 40. Diagnóstico rápido: '¿Cuántas decisiones por día requieren que estés vos específicamente?' Más de 15 decisiones/día: el negocio depende demasiado del dueño → no puede escalar.",
+    "questions": [
+      "¿Cómo puede un dueño PyME mejorar su liderazgo?",
+      "¿Cómo delegar en una PyME sin perder el control?",
+      "¿Por qué el negocio no puede funcionar sin el dueño?",
+      "¿Cómo hacer que el equipo tome más decisiones?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ss-005",
+    "source_name": "30-60-90 Day Roadmap — implementar el diagnóstico DashBI en 90 días",
+    "category": "habilidades_blandas",
+    "quality_score": 9.5,
+    "text": "El roadmap 30-60-90 días convierte el diagnóstico DashBI en un plan ejecutable. El cerebro puede comprometerse con 90 días — un año es demasiado abstracto. Estructura para implementar el diagnóstico: DÍA 0: baseline — score DashBI inicial, 3 alertas críticas, compromiso del dueño. PRIMEROS 30 DÍAS ('apagar incendios'): resolver las alertas rojas. Regularizar empleados, contratar ART, presentar DDJJ atrasadas. Métrica: cantidad de alertas rojas → objetivo: 0. DÍAS 31-60 ('construir sistemas'): activar validación de proveedores en DashBI, configurar motor de vencimientos, primera liquidación de sueldos, análisis MT vs RI. Métrica: score DashBI → objetivo: subir 15 puntos. DÍAS 61-90 ('optimizar y proyectar'): primer informe trimestral de posición fiscal, aplicar 1 incentivo fiscal identificado, Vision Map del siguiente horizonte, segundo diagnóstico — comparar con baseline. Métrica: score DashBI → objetivo: >70. Regla clave: no agregar objetivos a mitad del período. Lo nuevo va al próximo ciclo de 90 días.",
+    "questions": [
+      "¿Cómo implementar las recomendaciones del diagnóstico DashBI?",
+      "¿Cómo priorizar los cambios cuando hay muchas cosas para hacer?",
+      "¿Cuánto tiempo lleva mejorar el score de una empresa?",
+      "¿Cómo crear un plan de acción para una PyME?"
+    ],
+    "version": "v2"
+  },
+  {
+    "chunk_id": "ss-006",
+    "source_name": "Pain/Gain — qué duele y qué motiva al dueño PyME argentino",
+    "category": "habilidades_blandas",
+    "quality_score": 9.6,
+    "text": "Para comunicar el valor de DashBI efectivamente, entender los dolores y ganancias reales del dueño PyME argentino (35-55 años, 5-20 empleados). DOLORES (lo que le quita el sueño): miedo a la inspección AFIP o multa inesperada, no saber si sus números son reales, depender del contador para todo, no poder tomarse vacaciones sin que todo se caiga, trabajar mucho pero no ganar suficiente, no saber si su empresa vale algo. GANANCIAS (lo que lo motiva profundamente): tranquilidad para dormir sin preocupaciones, control de lo que pasa en tiempo real, reconocimiento de sus pares, libertad para delegar y crecer, legado para sus hijos o poder vender bien. Cómo usar esto en DashBI: El diagnóstico habla el lenguaje de los dolores: 'Perdés $180.000/mes de crédito fiscal.' Las recomendaciones deben conectar con las ganancias: 'Con esto vas a poder tomarte 15 días sin revisar el teléfono.' El mensaje que conecta dolor Y ganancia es el que genera acción inmediata.",
+    "questions": [
+      "¿Qué le preocupa realmente al dueño de una PyME argentina?",
+      "¿Cómo venderle DashBI a alguien que no ve la necesidad?",
+      "¿Cómo presentar el diagnóstico para que el cliente quiera actuar?",
+      "¿Qué motiva a los dueños PyME a cambiar sus prácticas fiscales?"
+    ],
+    "version": "v2"
+  }
+]
